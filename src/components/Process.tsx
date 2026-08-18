@@ -70,13 +70,13 @@ export default function Process() {
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center transition-all duration-700 ease-out ${
+              className={`grid lg:grid-cols-12 gap-8 lg:gap-10 items-center transition-all duration-700 ease-out ${
                 visible ? "translate-y-0" : "translate-y-6"
               }`}
               style={{ transitionDelay: `${i * 120}ms` }}
             >
-              <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-                <div className="flex items-start gap-4 mb-4">
+              <div className={`lg:col-span-5 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                <div className="flex items-start gap-4">
                   <span className="text-4xl md:text-5xl font-bold text-burgundy/10 leading-none shrink-0">
                     {step.number}
                   </span>
@@ -92,7 +92,7 @@ export default function Process() {
               </div>
 
               <div
-                className={`relative aspect-[16/10] overflow-hidden ${
+                className={`lg:col-span-7 relative aspect-[16/10] overflow-hidden ${
                   i % 2 === 1 ? "lg:order-1" : ""
                 }`}
               >
@@ -101,7 +101,7 @@ export default function Process() {
                   alt={step.title}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
                 />
               </div>
             </div>

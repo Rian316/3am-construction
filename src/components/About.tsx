@@ -21,9 +21,9 @@ export default function About() {
   return (
     <section id="about" ref={ref} className="py-16 md:py-24 lg:py-32 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div
-            className={`transition-all duration-700 ease-out ${
+            className={`lg:col-span-5 transition-all duration-700 ease-out ${
               visible ? "translate-x-0" : "-translate-x-8"
             }`}
           >
@@ -83,17 +83,17 @@ export default function About() {
           </div>
 
           <div
-            className={`relative transition-all duration-700 ease-out delay-150 ${
+            className={`lg:col-span-7 relative transition-all duration-700 ease-out delay-150 ${
               visible ? "translate-x-0" : "translate-x-8"
             }`}
           >
-            <div className="relative aspect-[4/5] overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src="/images/house-modern.jpg"
                 alt="Modern residential construction by 3AM Construction Services"
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 100vw, 60vw"
               />
             </div>
             <div className="absolute -bottom-5 -left-5 bg-burgundy text-white px-6 py-5 max-w-[180px]">

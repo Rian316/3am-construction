@@ -62,9 +62,9 @@ export default function Values() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <div
-            className={`transition-all duration-700 ease-out ${
+            className={`lg:col-span-6 transition-all duration-700 ease-out ${
               visible ? "translate-y-0" : "translate-y-6"
             }`}
           >
@@ -107,7 +107,7 @@ export default function Values() {
           </div>
 
           <div
-            className={`space-y-6 transition-all duration-700 ease-out delay-150 ${
+            className={`lg:col-span-6 space-y-6 transition-all duration-700 ease-out delay-150 ${
               visible ? "translate-y-0" : "translate-y-6"
             }`}
           >

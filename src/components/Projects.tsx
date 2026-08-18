@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 
 const projects = [
@@ -49,131 +49,274 @@ const projects = [
 ];
 
 export default function Projects() {
-  const [visible, setVisible] = useState(false);
-  const [activeProject, setActiveProject] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const activeProject = projects[activeIndex];
+
+  const openLightbox = useCallback((index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightboxOpen(false);
+  }, []);
+
+  const nextProject = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % projects.length);
+  }, []);
+
+  const prevProject = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  }, []);
+
+  const nextLightbox = useCallback(() => {
+    setLightboxIndex((prev) => (prev + 1) % projects.length);
+  }, []);
+
+  const prevLightbox = useCallback(() => {
+    setLightboxIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+
+      if (e.key === "Escape") {
+        closeLightbox();
+      } else if (e.key === "ArrowRight") {
+        nextLightbox();
+      } else if (e.key === "ArrowLeft") {
+        prevLightbox();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxOpen, closeLightbox, nextLightbox, prevLightbox]);
+
+  useEffect(() => {
+    if (lightboxOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [lightboxOpen]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setVisible(true);
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("translate-y-0");
+          }
+        });
       },
       { threshold: 0.1 }
     );
-    if (ref.current) observer.observe(ref.current);
+
+    const elements = sectionRef.current?.querySelectorAll(".scroll-animate");
+    elements?.forEach((el) => observer.observe(el));
+
     return () => observer.disconnect();
   }, []);
 
-  const nextProject = () =>
-    setActiveProject((prev) => (prev + 1) % projects.length);
-  const prevProject = () =>
-    setActiveProject((prev) => (prev - 1 + projects.length) % projects.length);
-
   return (
-    <section id="projects" ref={ref} className="py-16 md:py-24 lg:py-32 bg-charcoal">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
-        <div
-          className={`flex flex-col md:flex-row md:items-end md:justify-between mb-10 md:mb-14 transition-all duration-700 ease-out ${
-            visible ? "translate-y-0" : "translate-y-6"
-          }`}
-        >
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-6 h-[1px] bg-burgundy-light" />
-              <span className="text-[11px] font-medium tracking-[0.25em] text-burgundy-light uppercase">
+    <>
+      <section
+        ref={sectionRef}
+        className="py-16 md:py-24 lg:py-32 bg-charcoal"
+      >
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+          <div className="flex items-end justify-between mb-12 md:mb-16 scroll-animate translate-y-8 transition-transform duration-700">
+            <div>
+              <p className="text-burgundy text-sm tracking-[0.2em] uppercase mb-3">
                 Selected Projects
-              </span>
+              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                Our Work Speaks for Itself
+              </h2>
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-[1.1] tracking-tight">
-              Our Work{" "}
-              <span className="text-burgundy-light">Speaks for Itself</span>
-            </h2>
+            <div className="flex gap-3">
+              <button
+                onClick={prevProject}
+                className="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
+                aria-label="Previous project"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="text-white"
+                >
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+              <button
+                onClick={nextProject}
+                className="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
+                aria-label="Next project"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="text-white"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
           </div>
-          <div className="flex gap-2 mt-6 md:mt-0">
-            <button
-              onClick={prevProject}
-              className="w-10 h-10 border border-white/20 flex items-center justify-center text-white/50 hover:border-white/50 hover:text-white transition-all duration-300"
-              aria-label="Previous project"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={nextProject}
-              className="w-10 h-10 border border-white/20 flex items-center justify-center text-white/50 hover:border-white/50 hover:text-white transition-all duration-300"
-              aria-label="Next project"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        </div>
 
-        <div
-          className={`transition-all duration-700 ease-out delay-150 ${
-            visible ? "translate-y-0" : "translate-y-6"
-          }`}
-        >
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-            <div className="relative aspect-[4/3] overflow-hidden group">
-              <Image
-                src={projects[activeProject].image}
-                alt={projects[activeProject].title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-              <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-3 group-hover:translate-y-0">
-                <span className="text-[10px] tracking-[0.18em] text-white/70 uppercase">
-                  {projects[activeProject].category} &middot;{" "}
-                  {projects[activeProject].location}
-                </span>
+          <div className="grid lg:grid-cols-12 gap-6 scroll-animate translate-y-8 transition-transform duration-700 delay-200">
+            <div className="lg:col-span-8">
+              <div
+                className="aspect-[16/10] overflow-hidden cursor-pointer bg-charcoal"
+                onClick={() => openLightbox(activeIndex)}
+              >
+                <Image
+                  src={activeProject.image}
+                  alt={activeProject.title}
+                  width={1200}
+                  height={750}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                />
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              {projects.map((project, i) => (
-                <button
-                  key={project.id}
-                  onClick={() => setActiveProject(i)}
-                  className={`relative aspect-[3/2] overflow-hidden transition-all duration-300 ${
-                    i === activeProject
-                      ? "ring-1 ring-burgundy"
-                      : "opacity-40 hover:opacity-70"
-                  }`}
-                >
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
-                </button>
-              ))}
+            <div className="lg:col-span-4">
+              <div className="grid grid-cols-3 lg:grid-cols-2 gap-3">
+                {projects.map((project, index) => (
+                  <button
+                    key={project.id}
+                    onClick={() => setActiveIndex(index)}
+                    className={`aspect-square overflow-hidden transition-all duration-300 ${
+                      index === activeIndex
+                        ? "ring-1 ring-burgundy"
+                        : "opacity-40 hover:opacity-70"
+                    }`}
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="mt-6 flex items-center justify-between">
-            <div>
-              <h3 className="text-lg md:text-xl font-bold text-white tracking-tight">
-                {projects[activeProject].title}
-              </h3>
-              <p className="text-[13px] text-white/40 mt-0.5">
-                {projects[activeProject].category} &middot;{" "}
-                {projects[activeProject].location}
-              </p>
-            </div>
-            <span className="text-[13px] font-mono text-white/25">
-              {String(activeProject + 1).padStart(2, "0")} /{" "}
-              {String(projects.length).padStart(2, "0")}
+          <div className="mt-8 flex items-center gap-6 scroll-animate translate-y-8 transition-transform duration-700 delay-300">
+            <h3 className="text-xl md:text-2xl font-semibold text-white">
+              {activeProject.title}
+            </h3>
+            <span className="text-white/40 text-lg">
+              {String(activeIndex + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
             </span>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+          onClick={closeLightbox}
+        >
+          <button
+            onClick={closeLightbox}
+            className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center text-white hover:text-burgundy transition-colors z-10"
+            aria-label="Close lightbox"
+          >
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              prevLightbox();
+            }}
+            className="absolute left-4 md:left-8 w-14 h-14 flex items-center justify-center text-white hover:text-burgundy transition-colors z-10"
+            aria-label="Previous project"
+          >
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              nextLightbox();
+            }}
+            className="absolute right-4 md:right-8 w-14 h-14 flex items-center justify-center text-white hover:text-burgundy transition-colors z-10"
+            aria-label="Next project"
+          >
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+
+          <div
+            className="max-w-6xl mx-auto px-16"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={projects[lightboxIndex].image}
+              alt={projects[lightboxIndex].title}
+              width={1600}
+              height={1000}
+              className="w-full max-h-[85vh] object-contain"
+            />
+            <div className="text-center mt-6">
+              <h3 className="text-xl md:text-2xl font-semibold text-white">
+                {projects[lightboxIndex].title}
+              </h3>
+              <p className="text-white/50 mt-2">
+                {projects[lightboxIndex].category}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
