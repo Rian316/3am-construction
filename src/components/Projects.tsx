@@ -11,6 +11,7 @@ const projects = [
     slug: "modern-kitchen-renovation",
     title: "Modern Kitchen Renovation",
     category: "Residential",
+    scope: "Custom Cabinetry, Lighting, Space Optimization",
     location: "Metro Manila",
     year: "2024",
     image: "/images/projects/kitchen-modern.jpg",
@@ -21,6 +22,7 @@ const projects = [
     slug: "contemporary-living-space",
     title: "Contemporary Living Space",
     category: "Residential",
+    scope: "Open-Plan Redesign, Smart Lighting, Custom Woodwork",
     location: "Luzon",
     year: "2024",
     image: "/images/projects/living-room.jpg",
@@ -31,6 +33,7 @@ const projects = [
     slug: "luxury-kitchen-fit-out",
     title: "Luxury Kitchen Fit-Out",
     category: "Fit-Out",
+    scope: "Italian Appliances, Quartz Countertops, Custom Cabinetry",
     location: "Metro Manila",
     year: "2023",
     image: "/images/projects/luxury-kitchen.jpg",
@@ -41,6 +44,7 @@ const projects = [
     slug: "modern-bathroom-design",
     title: "Modern Bathroom Design",
     category: "Residential",
+    scope: "Waterproofing, Porcelain Tiling, Rain Shower",
     location: "Luzon",
     year: "2024",
     image: "/images/projects/bathroom-modern.jpg",
@@ -51,6 +55,7 @@ const projects = [
     slug: "premium-cabinetry-work",
     title: "Premium Cabinetry Work",
     category: "Fit-Out",
+    scope: "Custom Wardrobes, Kitchen Cabinets, Entertainment Unit",
     location: "Metro Manila",
     year: "2023",
     image: "/images/projects/cabinetry.jpg",
@@ -61,6 +66,7 @@ const projects = [
     slug: "urban-condo-interior",
     title: "Urban Condo Interior",
     category: "Residential",
+    scope: "Multi-Functional Furniture, Built-In Storage, Styling",
     location: "Metro Manila",
     year: "2024",
     image: "/images/projects/interior-wood.jpg",
@@ -71,6 +77,7 @@ const projects = [
     slug: "open-plan-living",
     title: "Open Plan Living",
     category: "Residential",
+    scope: "Structural Modification, Kitchen Redesign, Flooring",
     location: "Luzon",
     year: "2023",
     image: "/images/projects/open-living.jpg",
@@ -81,6 +88,7 @@ const projects = [
     slug: "executive-office-suite",
     title: "Executive Office Suite",
     category: "Commercial",
+    scope: "Custom Furniture, Glass Partitions, AV Integration",
     location: "Metro Manila",
     year: "2024",
     image: "/images/projects/office-desk.jpg",
@@ -119,7 +127,7 @@ export default function Projects() {
             <span className="block text-[#953131] text-[10px] font-semibold tracking-[0.3em] uppercase mb-4">
               Selected Projects
             </span>
-            <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.08] tracking-[-0.02em]">
+            <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.08] tracking-[-0.02em] font-display">
               Our Work Speaks
               <br className="hidden md:block" /> for Itself
             </h2>
@@ -168,18 +176,24 @@ export default function Projects() {
               sizes="(max-width: 1024px) 100vw, 60vw"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="absolute bottom-0 left-0 p-6 md:p-8">
-              <span className="text-[#953131] text-[10px] font-semibold tracking-[0.2em] uppercase">
-                {activeProject.category}
-              </span>
-              <h3 className="text-white text-xl md:text-2xl font-bold mt-1.5 tracking-tight">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-[#953131] text-[10px] font-semibold tracking-[0.2em] uppercase">
+                  {activeProject.category}
+                </span>
+                <span className="w-1 h-1 rounded-full bg-white/30" />
+                <span className="text-white/40 text-[11px] tracking-wide">
+                  {activeProject.location} &middot; {activeProject.year}
+                </span>
+              </div>
+              <h3 className="text-white text-xl md:text-2xl font-bold tracking-tight">
                 {activeProject.title}
               </h3>
-              <p className="text-white/40 text-[13px] mt-1">
-                {activeProject.location} &middot; {activeProject.year}
+              <p className="text-white/50 text-[13px] mt-2 max-w-md">
+                {activeProject.scope}
               </p>
-              <span className="inline-flex items-center gap-2 mt-3 text-white/60 text-[11px] font-medium uppercase tracking-wider group-hover:text-white transition-colors">
+              <span className="inline-flex items-center gap-2 mt-4 text-[#953131] text-[11px] font-semibold uppercase tracking-wider group-hover:gap-3 transition-all">
                 View Case Study
                 <svg className="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -207,10 +221,13 @@ export default function Projects() {
                   className="object-cover"
                   sizes="200px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                <div className="absolute bottom-0 left-0 p-3">
-                  <span className="text-white text-[11px] font-medium tracking-wide">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                <div className="absolute bottom-0 left-0 p-3 w-full">
+                  <span className="text-white text-[11px] font-medium tracking-wide block">
                     {project.title}
+                  </span>
+                  <span className="text-white/40 text-[10px] tracking-wide block mt-0.5">
+                    {project.scope.split(",")[0]}
                   </span>
                 </div>
               </Link>

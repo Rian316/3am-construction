@@ -152,11 +152,14 @@ export default function Contact() {
                   Get In Touch
                 </span>
               </div>
-              <h2 className="text-3xl font-bold text-charcoal md:text-4xl lg:text-[2.5rem] leading-[1.1] tracking-[-0.02em]">
-                Tell Us What
-                <br />
-                You&apos;re Building.
+              <h2 className="text-3xl font-bold text-charcoal md:text-4xl lg:text-[2.5rem] leading-[1.1] tracking-[-0.02em] font-display">
+                Let&apos;s Start<br />
+                Your Project.
               </h2>
+              <p className="text-[15px] text-charcoal/60 leading-[1.7] mt-4 max-w-sm">
+                Tell us about your project and we&apos;ll get back to you within
+                24 hours with a clear plan and transparent pricing.
+              </p>
             </div>
 
             <div className="space-y-5">
@@ -184,7 +187,8 @@ export default function Contact() {
                 </div>
                 <h3 className="text-xl font-bold text-charcoal mb-2">Thank You</h3>
                 <p className="text-[14px] text-charcoal/50 max-w-sm">
-                  Your inquiry has been received. We&apos;ll get back to you within 24 hours.
+                  Your inquiry has been received. We&apos;ll get back to you
+                  within 24 hours with next steps.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -247,9 +251,9 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label
                     htmlFor="phone"
-                      className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
-                    >
-                      Phone
+                    className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
+                  >
+                    Phone
                   </label>
                   <input
                     id="phone"
@@ -271,9 +275,9 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label
                     htmlFor="projectType"
-                      className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
-                    >
-                      Project Type *
+                    className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
+                  >
+                    Project Type *
                   </label>
                   <div className="select-wrapper">
                     <select
@@ -304,9 +308,9 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label
                     htmlFor="message"
-                      className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
-                    >
-                      Message *
+                    className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
+                  >
+                    Message *
                   </label>
                   <textarea
                     id="message"

@@ -23,31 +23,27 @@ export default function About() {
             </div>
 
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em] mb-8 font-display">
-              BUILT WITH
-              <br />
-              INTENTION.
+              Built on<br />
+              Intention.
             </h2>
 
             <div className="space-y-5 text-charcoal/70 leading-[1.75] text-[15px] md:text-[16px]">
               <p>
-                <strong className="text-charcoal font-semibold">
-                  3AM Construction Services
-                </strong>{" "}
-                is a Luzon-based construction company delivering residential,
-                commercial, and public projects since 2018. We handle everything
-                from ground-up builds to interior fit-outs and structural
-                repairs — all under one roof.
+                3AM Construction Services is a Luzon-based construction company
+                founded in 2018 by Armel V. Manipol. We started with a simple
+                idea: deliver honest work, on time, without surprises.
               </p>
               <p>
-                Founded by Mr. Armel V. Manipol, the company was built on a
-                simple promise: quality work, delivered on time, with no
-                surprises. Over 100 projects later, that promise still drives
-                every build we take on.
+                Today, we&apos;ve completed over 100 projects across residential
+                homes, commercial spaces, and government facilities. Our team
+                handles everything — design, construction, fit-outs, repairs,
+                and project management — under one roof.
               </p>
               <p>
-                Whether you&apos;re building a family home, renovating a commercial
-                space, or managing a government project — we bring the same
-                attention to detail and commitment to safety.
+                We&apos;re not the biggest construction company in Luzon. But we
+                are one of the most hands-on. Our founder is on every job site.
+                Our project manager knows every client by name. And every build
+                is held to the same standard we&apos;d want for our own home.
               </p>
             </div>
 
@@ -63,7 +59,7 @@ export default function About() {
 
             {/* Founder Quote */}
             <div className="mt-10 border-l-2 border-[#953131]/30 pl-6">
-              <p className="text-[14px] text-charcoal/60 italic leading-[1.7]">
+              <p className="text-[14px] text-charcoal/60 italic leading-[1.7] font-display">
                 &ldquo;We don&apos;t just build structures — we build trust. Every
                 project is a relationship, not a transaction.&rdquo;
               </p>
@@ -89,7 +85,7 @@ export default function About() {
                 />
               </div>
               <div className="absolute -bottom-6 -left-4 md:-bottom-8 md:-left-8 bg-[#1A1A1A] text-white px-6 py-5 md:px-8 md:py-6">
-                <div className="text-3xl md:text-4xl font-bold tracking-tight">7+</div>
+                <div className="text-3xl md:text-4xl font-bold tracking-tight font-display">7+</div>
                 <div className="text-[10px] md:text-[11px] tracking-[0.15em] text-white/50 uppercase mt-1">
                   Years of Service in Luzon
                 </div>

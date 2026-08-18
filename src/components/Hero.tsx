@@ -38,7 +38,7 @@ export default function Hero() {
         <div style={fadeUp(0)} className="flex items-center gap-4 mb-6">
           <div className="w-10 h-[1px] bg-[#953131]" />
           <span className="text-[11px] font-medium tracking-[0.3em] text-white/70 uppercase">
-            Est. 2018 &middot; Luzon, Philippines
+            Design &amp; Build &middot; Luzon, Philippines
           </span>
         </div>
 
@@ -53,13 +53,12 @@ export default function Hero() {
           </span>
         </h1>
 
-        <p style={fadeUp(300)} className="text-[15px] md:text-[17px] text-white/70 max-w-lg mt-7 leading-[1.7] font-light">
-          Precision construction and design for residential, commercial, and
-          public projects across Luzon. From concept to turnover — we build
-          spaces that last.
+        <p style={fadeUp(300)} className="text-[15px] md:text-[17px] text-white/70 max-w-xl mt-7 leading-[1.7] font-light">
+          Residential construction, commercial fit-outs, interior design, and
+          project management — delivered with precision across Luzon since 2018.
         </p>
 
-        <div style={fadeUp(400)} className="flex items-center gap-6 mt-7">
+        <div style={fadeUp(400)} className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-7">
           <a
             href="tel:+639556758128"
             className="inline-flex items-center gap-2 text-white/80 hover:text-white text-[13px] font-medium tracking-wide transition-colors"
@@ -87,7 +86,7 @@ export default function Hero() {
             href="#contact"
             className="group inline-flex items-center gap-3 bg-[#953131] hover:bg-[#A93E3E] text-white px-7 py-4 text-[12px] font-semibold tracking-[0.1em] uppercase transition-all duration-300"
           >
-            GET A FREE QUOTE
+            Start Your Project
             <svg
               className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
@@ -102,7 +101,7 @@ export default function Hero() {
             href="#projects"
             className="group inline-flex items-center gap-3 border border-white/25 hover:border-white/40 text-white px-7 py-4 text-[12px] font-medium tracking-[0.1em] uppercase transition-all duration-300 hover:bg-white/5"
           >
-            VIEW OUR WORK
+            View Our Work
             <svg
               className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
@@ -113,6 +112,22 @@ export default function Hero() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
+        </div>
+
+        {/* Inline Trust Indicators */}
+        <div style={fadeUp(600)} className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-8 pt-6 border-t border-white/10">
+          <span className="text-[11px] text-white/50 font-medium tracking-wide">
+            <span className="text-[#953131] font-semibold">100+</span> Projects Completed
+          </span>
+          <span className="text-[11px] text-white/50 font-medium tracking-wide">
+            <span className="text-[#953131] font-semibold">7+</span> Years in Luzon
+          </span>
+          <span className="text-[11px] text-white/50 font-medium tracking-wide">
+            Residential &amp; Commercial
+          </span>
+          <span className="text-[11px] text-white/50 font-medium tracking-wide">
+            Licensed &amp; Insured
+          </span>
         </div>
       </div>
 

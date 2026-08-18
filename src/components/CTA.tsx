@@ -37,20 +37,20 @@ export default function CTA() {
 
         <h2 className="font-bold text-white tracking-[-0.02em] leading-[0.92] mb-8 font-display">
           <span className="block text-3xl md:text-5xl lg:text-6xl xl:text-7xl">
-            LET&apos;S BUILD
+            Let&apos;s Build
           </span>
           <span className="block text-3xl md:text-5xl lg:text-6xl xl:text-7xl mt-1">
-            SOMETHING
+            Something
           </span>
           <span className="block text-3xl md:text-5xl lg:text-6xl xl:text-7xl mt-1">
-            EXCEPTIONAL.
+            Exceptional.
           </span>
         </h2>
 
-        <p className="text-[15px] md:text-[16px] text-white/65 max-w-md mx-auto leading-[1.7] mb-12">
+        <p className="text-[15px] md:text-[16px] text-white/65 max-w-lg mx-auto leading-[1.7] mb-12">
           Whether it&apos;s a new home, a renovation, or a commercial project —
-          we&apos;re ready to bring your vision to life with quality and
-          craftsmanship.
+          we&apos;re ready to bring your vision to life. No surprises. Just
+          quality work, delivered on time.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -58,7 +58,7 @@ export default function CTA() {
             href="#contact"
             className="group inline-flex items-center gap-3 bg-[#953131] hover:bg-[#A93E3E] text-white px-8 py-4 text-[12px] font-semibold uppercase tracking-[0.1em] transition-all duration-300"
           >
-            REQUEST A CONSULTATION
+            Start Your Project
             <svg
               className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
@@ -86,7 +86,7 @@ export default function CTA() {
             >
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
-            CALL US NOW
+            Call Us Now
           </a>
         </div>
       </div>

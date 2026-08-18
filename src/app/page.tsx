@@ -8,8 +8,10 @@ import Team from "@/components/Team";
 import CTA from "@/components/CTA";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
+import ClosingCTA from "@/components/ClosingCTA";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import StickyDesktopCTA from "@/components/StickyDesktopCTA";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -63,6 +65,7 @@ export default function Home() {
         Skip to content
       </a>
       <Navigation />
+      <StickyDesktopCTA />
       <Hero />
       <TrustMetrics />
       <About />
@@ -72,6 +75,7 @@ export default function Home() {
       <CTA />
       <FAQ />
       <Contact />
+      <ClosingCTA />
       <Footer />
       <StickyMobileCTA />
     </main>

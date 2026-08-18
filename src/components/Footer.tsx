@@ -3,6 +3,37 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-[#1A1A1A] text-white">
+      {/* Conversion Zone */}
+      <div className="border-b border-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-12 md:py-16">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <p className="text-[10px] font-semibold tracking-[0.3em] text-[#953131] uppercase mb-2">
+                Ready to Get Started?
+              </p>
+              <p className="text-white text-lg md:text-xl font-bold tracking-tight font-display">
+                Let&apos;s discuss your next project.
+              </p>
+            </div>
+            <div className="flex items-center gap-4">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 bg-[#953131] hover:bg-[#A93E3E] text-white px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.1em] transition-colors"
+              >
+                Get a Free Quote
+              </a>
+              <a
+                href="tel:+639556758128"
+                className="inline-flex items-center gap-2 border border-white/20 text-white hover:bg-white/5 px-6 py-3 text-[11px] font-medium uppercase tracking-[0.1em] transition-colors"
+              >
+                0955 675 8128
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Footer */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-14 md:py-18">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Column 1 - Brand */}
@@ -11,8 +42,8 @@ export default function Footer() {
               <Image src="/images/logo.png" alt="3AM Construction Services" width={120} height={35} className="h-7 w-auto" />
             </a>
             <p className="text-[13px] text-white/50 leading-relaxed">
-              Delivering exceptional construction and design solutions with
-              precision, integrity, and excellence.
+              Premium construction and design solutions delivered with
+              precision, integrity, and craftsmanship across Luzon since 2018.
             </p>
           </div>
 
@@ -26,7 +57,7 @@ export default function Footer() {
                 { label: "About", href: "#about" },
                 { label: "Services", href: "#services" },
                 { label: "Projects", href: "#projects" },
-                { label: "Process", href: "#process" },
+                { label: "Team", href: "#team" },
                 { label: "Contact", href: "#contact" },
               ].map((item) => (
                 <li key={item.href}>

@@ -8,37 +8,37 @@ const services = [
     number: "01",
     title: "Residential Construction",
     description:
-      "From ground-up construction to complete remodeling, we ensure every home combines functionality, comfort, and style.",
+      "Ground-up home builds, major renovations, and structural improvements. We manage the entire process — from foundation to finish — ensuring your home is built to last.",
   },
   {
     number: "02",
     title: "Interior & Exterior Design",
     description:
-      "Our team provides creative and practical design solutions that enhance both the look and feel of a property.",
+      "Space planning, material selection, and design development for both interiors and building exteriors. Every decision is guided by how you actually use the space.",
   },
   {
     number: "03",
     title: "Fit-Out Works",
     description:
-      "From kitchens and bathrooms to bedrooms and living areas, we customize interiors to suit client preferences.",
+      "Kitchen renovations, bathroom remodels, custom cabinetry, and complete room transformations. We handle the details that make a space function beautifully.",
   },
   {
     number: "04",
     title: "Construction & Repairs",
     description:
-      "We offer a wide range of repair and improvement services, including structural works, roofing, flooring, plumbing, and electrical upgrades.",
+      "Structural repairs, roofing, flooring, plumbing, and electrical upgrades. We fix what's broken and improve what needs upgrading — with lasting results.",
   },
   {
     number: "05",
     title: "Private & Public Projects",
     description:
-      "Beyond residential works, we also manage private developments and government infrastructure, ensuring compliance with quality and safety standards.",
+      "Commercial spaces, government infrastructure, and private developments. We deliver to the same standard whether it's a family home or a public facility.",
   },
   {
     number: "06",
-    title: "Project Management & Consultation",
+    title: "Project Management",
     description:
-      "We provide professional project oversight — from planning and scheduling to quality control and final turnover.",
+      "Planning, scheduling, budgeting, quality control, and final turnover. We keep your project on track so you don't have to manage the complexity yourself.",
   },
 ];
 
@@ -61,12 +61,12 @@ export default function Services() {
           <div className="flex items-center gap-3 mb-5">
             <div className="w-8 h-[1px] bg-[#953131]" />
             <span className="text-[10px] font-semibold tracking-[0.3em] text-[#953131] uppercase">
-              Our Capabilities
+              What We Do
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em]">
-            Comprehensive Construction{" "}
-            <span className="text-[#953131]">Services</span>
+          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em] font-display">
+            Construction Services{" "}
+            <span className="text-[#953131]">Built on Experience</span>
           </h2>
         </div>
 
@@ -91,7 +91,7 @@ export default function Services() {
                 role="button"
                 aria-label={`${service.title}: ${service.description}`}
               >
-                <span className="text-[11px] text-charcoal/40 w-10 shrink-0 font-mono">
+                <span className="text-[11px] text-[#953131]/60 w-10 shrink-0 font-mono font-semibold">
                   {service.number}
                 </span>
                 <h3

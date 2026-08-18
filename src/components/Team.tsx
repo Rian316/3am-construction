@@ -6,16 +6,16 @@ import Image from "next/image";
 const team = [
   {
     name: "Armel V. Manipol",
-    role: "Founder",
+    role: "Founder & Lead Builder",
     description:
-      "Provides leadership and direction for the company, ensuring every project upholds the standards of quality, safety, and client satisfaction.",
+      "Armel founded 3AM Construction with a hands-on approach to every project. He personally oversees design decisions, material selection, and quality standards — ensuring each build reflects the craftsmanship the company is known for. With years of field experience, he leads from the construction site, not just the office.",
     image: "/images/team/armel-manipol.png",
   },
   {
     name: "Michelle Manipol",
     role: "Project Manager",
     description:
-      "Oversees day-to-day coordination, documentation, and communication, keeping projects organized and on track from start to finish.",
+      "Michelle manages the complete project lifecycle — from initial consultation and documentation to scheduling, contractor coordination, and final turnover. She is the single point of contact for every client, ensuring nothing falls through the cracks and every deadline is met.",
     image: "/images/team/michelle-manipol.jpg",
   },
 ];
@@ -34,13 +34,18 @@ export default function Team() {
           <div className="flex items-center gap-3 mb-5">
             <div className="w-8 h-[1px] bg-[#953131]" />
             <span className="text-[10px] font-semibold tracking-[0.3em] text-[#953131] uppercase">
-              Leadership
+              Who You&apos;ll Work With
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em]">
-            The People Behind{" "}
-            <span className="text-[#953131]">3AM Construction</span>
+          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em] font-display">
+            Direct Access to{" "}
+            <span className="text-[#953131]">Decision Makers</span>
           </h2>
+          <p className="text-[15px] text-charcoal/60 leading-[1.7] mt-5 max-w-lg">
+            When you work with 3AM, you work directly with the people who
+            build. No layers. No runaround. Just clear communication from
+            the person on site to the person who signs off.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
@@ -90,9 +95,13 @@ export default function Team() {
           <div className="absolute inset-0 bg-[#1A1A1A]/50" />
           <div className="absolute inset-0 flex items-center justify-center px-6">
             <blockquote className="text-center max-w-2xl">
-              <p className="text-white text-lg md:text-xl lg:text-2xl font-light tracking-wide leading-[1.6] italic">
-                &ldquo;Built on integrity, driven by craftsmanship&rdquo;
+              <p className="text-white text-lg md:text-xl lg:text-2xl font-light tracking-wide leading-[1.6] italic font-display">
+                &ldquo;Every project is a relationship, not a transaction. We
+                build trust one home at a time.&rdquo;
               </p>
+              <cite className="block text-white/50 text-[12px] mt-4 not-italic tracking-[0.1em] uppercase">
+                Armel V. Manipol, Founder
+              </cite>
             </blockquote>
           </div>
         </div>

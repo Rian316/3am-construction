@@ -3,10 +3,10 @@
 import { useInView } from "@/hooks/useInView";
 
 const metrics = [
-  { value: "2018", label: "Founded" },
-  { value: "7+", label: "Years of Service" },
-  { value: "100+", label: "Projects Completed" },
-  { value: "100%", label: "Commitment to Safety" },
+  { value: "100+", label: "Projects Delivered" },
+  { value: "7+", label: "Years in Luzon" },
+  { value: "Residential", label: "& Commercial" },
+  { value: "Design", label: "& Build" },
 ];
 
 export default function TrustMetrics() {
@@ -32,7 +32,7 @@ export default function TrustMetrics() {
               }`}
               style={{ transitionDelay: `${i * 120}ms` }}
             >
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight font-display">
                 {metric.value}
               </div>
               <div className="text-[10px] md:text-[11px] tracking-[0.2em] text-white/60 uppercase mt-1.5">
