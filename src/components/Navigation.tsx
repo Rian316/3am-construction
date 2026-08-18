@@ -66,8 +66,8 @@ export default function Navigation() {
                 alt="3AM Construction Services"
                 width={140}
                 height={40}
-                style={{ width: "auto", height: "2rem" }}
-                className="md:!h-10"
+                style={{ width: "auto", height: "auto" }}
+                className="h-8 md:h-10"
                 priority
               />
             </a>

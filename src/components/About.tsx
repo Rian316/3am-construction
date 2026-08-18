@@ -64,7 +64,7 @@ export default function About() {
             }`}
           >
             <div className="relative">
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src="/images/house-modern.jpg"
                   alt="Modern residential construction by 3AM Construction Services"

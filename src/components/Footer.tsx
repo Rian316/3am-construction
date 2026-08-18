@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Column 1 - Brand */}
           <div>
             <a href="#" className="flex items-center gap-2.5 mb-5" aria-label="3AM Construction Services - Home">
-              <Image src="/images/logo.png" alt="3AM Construction Services" width={120} height={35} style={{ width: "auto", height: "1.75rem" }} />
+              <Image src="/images/logo.png" alt="3AM Construction Services" width={120} height={35} style={{ width: "auto", height: "auto" }} className="h-7" />
             </a>
             <p className="text-[13px] text-white/30 leading-relaxed">
               Delivering exceptional construction and design solutions with
