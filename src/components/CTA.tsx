@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useInView } from "@/hooks/useInView";
+import { site } from "@/lib/site";
 
 export default function CTA() {
   const { ref, isVisible } = useInView({ threshold: 0.2 });
@@ -70,7 +71,7 @@ export default function CTA() {
             </svg>
           </a>
           <a
-            href="tel:+639556758128"
+            href={`tel:${site.phoneRaw}`}
             className="flex items-center gap-3 border border-white/20 text-white hover:border-white/40 hover:bg-white/5 px-8 py-4 text-[12px] font-medium uppercase tracking-[0.1em] transition-all duration-300"
           >
             <svg

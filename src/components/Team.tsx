@@ -2,23 +2,7 @@
 
 import { useInView } from "@/hooks/useInView";
 import Image from "next/image";
-
-const team = [
-  {
-    name: "Armel V. Manipol",
-    role: "Founder & Lead Builder",
-    description:
-      "Armel founded 3AM Construction with a hands-on approach to every project. He personally oversees design decisions, material selection, and quality standards — ensuring each build reflects the craftsmanship the company is known for. With over a decade of field experience and a background in structural engineering, he leads from the construction site, not just the office. His commitment to quality has earned 3AM a reputation for delivering projects that exceed expectations.",
-    image: "/images/team/armel-manipol.png",
-  },
-  {
-    name: "Michelle Manipol",
-    role: "Project Manager",
-    description:
-      "Michelle manages the complete project lifecycle — from initial consultation and documentation to scheduling, contractor coordination, and final turnover. She is the single point of contact for every client, ensuring nothing falls through the cracks and every deadline is met. Her attention to detail and proactive communication style have made her an invaluable partner to clients navigating complex construction projects.",
-    image: "/images/team/michelle-manipol.jpg",
-  },
-];
+import { team } from "@/lib/team";
 
 export default function Team() {
   const { ref, isVisible } = useInView({ threshold: 0.1 });
@@ -79,7 +63,6 @@ export default function Team() {
           ))}
         </div>
 
-        {/* Team photo banner with quote */}
         <div
           className={`mt-16 md:mt-20 relative aspect-[16/9] md:aspect-[21/8] overflow-hidden transition-all duration-700 ease-out delay-300 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"

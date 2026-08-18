@@ -1,0 +1,26 @@
+export const site = {
+  name: "3AM Construction Services",
+  tagline: "Design & Build · Luzon, Philippines",
+  description:
+    "3AM Construction Services is a premium construction company in Luzon specializing in residential, private, and public projects. Interior and exterior design, fit-outs, construction, and repair.",
+  url: "https://3amconstruction.com",
+  ogImage: "/images/hero-house.jpg",
+  phone: "+63 955 675 8128",
+  phoneRaw: "+639556758128",
+  phoneLocal: "0955 675 8128",
+  phone2: "0991 262 0627",
+  whatsapp: "639556758128",
+  email: "3am.constservices@gmail.com",
+  email2: "armelmanipol@yahoo.com",
+  facebook: "https://facebook.com/3amconstructionph",
+  location: "Luzon, Philippines",
+  foundedYear: "2018",
+  founder: "Armel V. Manipol",
+  founderFullName: "Armel V. Manipol",
+  projectManager: "Michelle Manipol",
+  stats: {
+    projects: "100+",
+    years: "7+",
+    coverage: "Luzon",
+  },
+} as const;

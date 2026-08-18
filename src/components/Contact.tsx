@@ -2,6 +2,7 @@
 
 import { useInView } from "@/hooks/useInView";
 import { useState, type FormEvent } from "react";
+import { site } from "@/lib/site";
 
 const PROJECT_TYPES = [
   "Residential Construction",
@@ -12,56 +13,23 @@ const PROJECT_TYPES = [
   "Project Management",
 ];
 
-const CONTACT_ITEMS = [
-  {
-    icon: (
-      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-      </svg>
-    ),
-    label: "3am.constservices@gmail.com",
-  },
-  {
-    icon: (
-      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-      </svg>
-    ),
-    label: "armelmanipol@yahoo.com",
-  },
-  {
-    icon: (
-      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-      </svg>
-    ),
-    label: "0955 675 8128",
-  },
-  {
-    icon: (
-      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-      </svg>
-    ),
-    label: "0991 262 0627",
-  },
-  {
-    icon: (
-      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-      </svg>
-    ),
-    label: "facebook.com/3amconstructionph",
-  },
-  {
-    icon: (
-      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-      </svg>
-    ),
-    label: "Luzon, Philippines",
-  },
+const BUDGET_RANGES = [
+  "Under ₱500K",
+  "₱500K – ₱1M",
+  "₱1M – ₱3M",
+  "₱3M – ₱5M",
+  "₱5M – ₱10M",
+  "₱10M+",
+  "Not sure yet",
+];
+
+const TIMELINES = [
+  "Within 1 month",
+  "1–3 months",
+  "3–6 months",
+  "6–12 months",
+  "12+ months",
+  "Flexible",
 ];
 
 interface FormData {
@@ -69,6 +37,9 @@ interface FormData {
   email: string;
   phone: string;
   projectType: string;
+  location: string;
+  budget: string;
+  timeline: string;
   message: string;
 }
 
@@ -103,6 +74,9 @@ export default function Contact() {
     email: "",
     phone: "",
     projectType: "",
+    location: "",
+    budget: "",
+    timeline: "",
     message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
@@ -127,11 +101,10 @@ export default function Contact() {
       return;
     }
     setSubmitting(true);
-    // Simulate submission — replace with actual API call
     setTimeout(() => {
       setSubmitting(false);
       setSubmitted(true);
-      setForm({ name: "", email: "", phone: "", projectType: "", message: "" });
+      setForm({ name: "", email: "", phone: "", projectType: "", location: "", budget: "", timeline: "", message: "" });
     }, 1500);
   };
 
@@ -163,14 +136,67 @@ export default function Contact() {
             </div>
 
             <div className="space-y-5">
-              {CONTACT_ITEMS.map((item) => (
-                <div key={item.label} className="flex items-start gap-3.5">
-                  <span className="mt-0.5 text-[#953131]/80">{item.icon}</span>
-                  <span className="text-[14px] font-light text-charcoal/70">
-                    {item.label}
-                  </span>
-                </div>
-              ))}
+              <a href={`mailto:${site.email}`} className="flex items-center gap-3.5 group">
+                <span className="text-[#953131]/80">
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                </span>
+                <span className="text-[14px] font-light text-charcoal/70 group-hover:text-[#953131] transition-colors">
+                  {site.email}
+                </span>
+              </a>
+              <a href={`mailto:${site.email2}`} className="flex items-center gap-3.5 group">
+                <span className="text-[#953131]/80">
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                </span>
+                <span className="text-[14px] font-light text-charcoal/70 group-hover:text-[#953131] transition-colors">
+                  {site.email2}
+                </span>
+              </a>
+              <a href={`tel:${site.phoneRaw}`} className="flex items-center gap-3.5 group">
+                <span className="text-[#953131]/80">
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
+                </span>
+                <span className="text-[14px] font-light text-charcoal/70 group-hover:text-[#953131] transition-colors">
+                  {site.phoneLocal}
+                </span>
+              </a>
+              <a href={`tel:${site.phone2.replace(/\s/g, "")}`} className="flex items-center gap-3.5 group">
+                <span className="text-[#953131]/80">
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
+                </span>
+                <span className="text-[14px] font-light text-charcoal/70 group-hover:text-[#953131] transition-colors">
+                  {site.phone2}
+                </span>
+              </a>
+              <a href={site.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3.5 group">
+                <span className="text-[#953131]/80">
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </span>
+                <span className="text-[14px] font-light text-charcoal/70 group-hover:text-[#953131] transition-colors">
+                  Facebook
+                </span>
+              </a>
+              <div className="flex items-center gap-3.5">
+                <span className="text-[#953131]/80">
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                  </svg>
+                </span>
+                <span className="text-[14px] font-light text-charcoal/70">
+                  {site.location}
+                </span>
+              </div>
             </div>
           </div>
 
@@ -198,13 +224,10 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form className="space-y-7" onSubmit={handleSubmit} noValidate>
-                <div className="grid gap-7 sm:grid-cols-2">
+              <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+                <div className="grid gap-6 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <label
-                      htmlFor="name"
-                      className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
-                    >
+                    <label htmlFor="name" className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55">
                       Name *
                     </label>
                     <input
@@ -219,15 +242,10 @@ export default function Contact() {
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? "name-error" : undefined}
                     />
-                    {errors.name && (
-                      <p id="name-error" className="text-[11px] text-[#953131] mt-1">{errors.name}</p>
-                    )}
+                    {errors.name && <p id="name-error" className="text-[11px] text-[#953131] mt-1">{errors.name}</p>}
                   </div>
                   <div className="space-y-2">
-                    <label
-                      htmlFor="email"
-                      className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
-                    >
+                    <label htmlFor="email" className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55">
                       Email *
                     </label>
                     <input
@@ -242,41 +260,46 @@ export default function Contact() {
                       aria-invalid={!!errors.email}
                       aria-describedby={errors.email ? "email-error" : undefined}
                     />
-                    {errors.email && (
-                      <p id="email-error" className="text-[11px] text-[#953131] mt-1">{errors.email}</p>
-                    )}
+                    {errors.email && <p id="email-error" className="text-[11px] text-[#953131] mt-1">{errors.email}</p>}
+                  </div>
+                </div>
+
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55">
+                      Phone
+                    </label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      value={form.phone}
+                      onChange={handleChange}
+                      className={`w-full border-b bg-transparent py-3 text-[15px] text-charcoal outline-none transition-colors ${
+                        errors.phone ? "border-[#953131]" : "border-charcoal/15 focus:border-[#953131]"
+                      }`}
+                      placeholder="Phone number"
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={errors.phone ? "phone-error" : undefined}
+                    />
+                    {errors.phone && <p id="phone-error" className="text-[11px] text-[#953131] mt-1">{errors.phone}</p>}
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="location" className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55">
+                      Project Location
+                    </label>
+                    <input
+                      id="location"
+                      type="text"
+                      value={form.location}
+                      onChange={handleChange}
+                      className="w-full border-b bg-transparent py-3 text-[15px] text-charcoal outline-none border-charcoal/15 focus:border-[#953131] transition-colors"
+                      placeholder="City / Province"
+                    />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label
-                    htmlFor="phone"
-                    className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
-                  >
-                    Phone
-                  </label>
-                  <input
-                    id="phone"
-                    type="tel"
-                    value={form.phone}
-                    onChange={handleChange}
-                    className={`w-full border-b bg-transparent py-3 text-[15px] text-charcoal outline-none transition-colors ${
-                      errors.phone ? "border-[#953131]" : "border-charcoal/15 focus:border-[#953131]"
-                    }`}
-                    placeholder="Phone number"
-                    aria-invalid={!!errors.phone}
-                    aria-describedby={errors.phone ? "phone-error" : undefined}
-                  />
-                  {errors.phone && (
-                    <p id="phone-error" className="text-[11px] text-[#953131] mt-1">{errors.phone}</p>
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <label
-                    htmlFor="projectType"
-                    className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
-                  >
+                  <label htmlFor="projectType" className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55">
                     Project Type *
                   </label>
                   <div className="select-wrapper">
@@ -290,27 +313,61 @@ export default function Contact() {
                       aria-invalid={!!errors.projectType}
                       aria-describedby={errors.projectType ? "project-error" : undefined}
                     >
-                      <option value="" disabled>
-                        Select project type
-                      </option>
+                      <option value="" disabled>Select project type</option>
                       {PROJECT_TYPES.map((type) => (
-                        <option key={type} value={type}>
-                          {type}
-                        </option>
+                        <option key={type} value={type}>{type}</option>
                       ))}
                     </select>
                   </div>
-                  {errors.projectType && (
-                    <p id="project-error" className="text-[11px] text-[#953131] mt-1">{errors.projectType}</p>
-                  )}
+                  {errors.projectType && <p id="project-error" className="text-[11px] text-[#953131] mt-1">{errors.projectType}</p>}
+                </div>
+
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <label htmlFor="budget" className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55">
+                      Estimated Budget
+                    </label>
+                    <div className="select-wrapper">
+                      <select
+                        id="budget"
+                        value={form.budget}
+                        onChange={handleChange}
+                        className={`w-full appearance-none border-b bg-transparent py-3 pr-8 text-[15px] text-charcoal outline-none border-charcoal/15 focus:border-[#953131] transition-colors ${
+                          !form.budget ? "text-charcoal/40" : ""
+                        }`}
+                      >
+                        <option value="" disabled>Select range</option>
+                        {BUDGET_RANGES.map((range) => (
+                          <option key={range} value={range}>{range}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="timeline" className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55">
+                      Desired Timeline
+                    </label>
+                    <div className="select-wrapper">
+                      <select
+                        id="timeline"
+                        value={form.timeline}
+                        onChange={handleChange}
+                        className={`w-full appearance-none border-b bg-transparent py-3 pr-8 text-[15px] text-charcoal outline-none border-charcoal/15 focus:border-[#953131] transition-colors ${
+                          !form.timeline ? "text-charcoal/40" : ""
+                        }`}
+                      >
+                        <option value="" disabled>Select timeline</option>
+                        {TIMELINES.map((t) => (
+                          <option key={t} value={t}>{t}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label
-                    htmlFor="message"
-                    className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
-                  >
-                    Message *
+                  <label htmlFor="message" className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55">
+                    Project Description *
                   </label>
                   <textarea
                     id="message"
@@ -324,9 +381,7 @@ export default function Contact() {
                     aria-invalid={!!errors.message}
                     aria-describedby={errors.message ? "message-error" : undefined}
                   />
-                  {errors.message && (
-                    <p id="message-error" className="text-[11px] text-[#953131] mt-1">{errors.message}</p>
-                  )}
+                  {errors.message && <p id="message-error" className="text-[11px] text-[#953131] mt-1">{errors.message}</p>}
                 </div>
 
                 <button
@@ -334,7 +389,7 @@ export default function Contact() {
                   disabled={submitting}
                   className="btn-premium bg-[#953131] px-8 py-3.5 text-[12px] font-semibold uppercase tracking-[0.1em] text-white transition-all hover:bg-[#A93E3E] disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {submitting ? "Sending..." : "Send Inquiry"}
+                  {submitting ? "Sending..." : "Send Project Inquiry"}
                 </button>
               </form>
             )}

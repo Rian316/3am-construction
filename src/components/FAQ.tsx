@@ -2,53 +2,18 @@
 
 import { useInView } from "@/hooks/useInView";
 import { useState } from "react";
-
-const faqs = [
-  {
-    question: "What areas do you serve?",
-    answer:
-      "We serve the entire Luzon region, including Metro Manila, Central Luzon, Calabarzon, and surrounding provinces. For large-scale projects, we can accommodate locations across the Philippines.",
-  },
-  {
-    question: "How long does a typical residential project take?",
-    answer:
-      "Timelines vary based on scope and complexity. A standard residential build typically takes 6–12 months. Renovations and fit-outs can range from 2–6 months. We provide a detailed timeline during the consultation phase.",
-  },
-  {
-    question: "What is your process from consultation to completion?",
-    answer:
-      "Our process is designed for clarity and peace of mind. It begins with a free consultation where we discuss your vision, budget, and timeline. We then provide a detailed, transparent quote. Once approved, we handle all permits, schedule construction, and keep you updated with regular progress reports. Throughout the build, you have direct access to our project manager. Finally, we conduct a thorough walkthrough before final turnover to ensure every detail meets your expectations.",
-  },
-  {
-    question: "Do you handle permits and documentation?",
-    answer:
-      "Yes. We manage all necessary permits, building applications, and regulatory compliance as part of our project management service. You won't need to navigate the paperwork alone.",
-  },
-  {
-    question: "Can I see examples of your previous work?",
-    answer:
-      "Absolutely. Our Projects section showcases recent work across residential, commercial, and fit-out categories. We can also arrange site visits to completed projects upon request.",
-  },
-  {
-    question: "What is your pricing structure?",
-    answer:
-      "We provide transparent, itemized quotes after an initial consultation. Pricing depends on project scope, materials, and timeline. We never charge hidden fees — what we quote is what you pay.",
-  },
-  {
-    question: "Do you offer warranties on your work?",
-    answer:
-      "Yes. All our construction work comes with a workmanship warranty. The specific terms depend on the project type and are outlined in your contract before work begins.",
-  },
-];
+import { faqs } from "@/lib/faq";
 
 function FaqItem({
   faq,
   isOpen,
   onToggle,
+  index,
 }: {
   faq: (typeof faqs)[0];
   isOpen: boolean;
   onToggle: () => void;
+  index: number;
 }) {
   return (
     <div className="border-b border-charcoal/10">
@@ -57,9 +22,14 @@ function FaqItem({
         className="w-full flex items-center justify-between py-5 text-left group"
         aria-expanded={isOpen}
       >
-        <span className="text-[15px] md:text-[16px] font-semibold text-charcoal pr-4 group-hover:text-[#953131] transition-colors">
-          {faq.question}
-        </span>
+        <div className="flex items-center gap-4 pr-4">
+          <span className="text-[11px] font-mono text-[#953131]/60 w-8 shrink-0">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="text-[15px] md:text-[16px] font-semibold text-charcoal group-hover:text-[#953131] transition-colors">
+            {faq.question}
+          </span>
+        </div>
         <svg
           className={`w-5 h-5 text-charcoal/40 shrink-0 transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
@@ -74,10 +44,10 @@ function FaqItem({
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-40 pb-5" : "max-h-0"
+          isOpen ? "max-h-60 pb-5" : "max-h-0"
         }`}
       >
-        <p className="text-[14px] text-charcoal/60 leading-[1.7]">
+        <p className="text-[14px] text-charcoal/60 leading-[1.7] pl-12">
           {faq.answer}
         </p>
       </div>
@@ -104,7 +74,7 @@ export default function FAQ() {
                 Common Questions
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em] mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em] mb-6 font-display">
               Frequently Asked{" "}
               <span className="text-[#953131]">Questions</span>
             </h2>
@@ -132,6 +102,7 @@ export default function FAQ() {
               <FaqItem
                 key={i}
                 faq={faq}
+                index={i}
                 isOpen={openIndex === i}
                 onToggle={() => setOpenIndex(openIndex === i ? null : i)}
               />

@@ -2,14 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-
-const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Team", href: "#team" },
-  { label: "Contact", href: "#contact" },
-];
+import { navLinks } from "@/lib/navigation";
+import { site } from "@/lib/site";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,7 +29,6 @@ export default function Navigation() {
     };
   }, [mobileOpen]);
 
-  // Escape key closes mobile menu
   useEffect(() => {
     if (!mobileOpen) return;
     const handleKey = (e: KeyboardEvent) => {
@@ -59,11 +52,11 @@ export default function Navigation() {
             <a
               href="#"
               className="flex items-center gap-2.5"
-              aria-label="3AM Construction Services - Home"
+              aria-label={`${site.name} - Home`}
             >
               <Image
                 src="/images/logo.png"
-                alt="3AM Construction Services"
+                alt={site.name}
                 width={140}
                 height={40}
                 className="h-8 md:h-10 w-auto"
@@ -72,7 +65,7 @@ export default function Navigation() {
             </a>
 
             <div className="hidden lg:flex items-center gap-10">
-              {NAV_LINKS.map((link) => (
+              {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
@@ -131,7 +124,7 @@ export default function Navigation() {
         aria-hidden={!mobileOpen}
       >
         <div className="flex flex-col items-center gap-10">
-          {NAV_LINKS.map((link, i) => (
+          {navLinks.map((link, i) => (
             <a
               key={link.href}
               href={link.href}
@@ -158,7 +151,7 @@ export default function Navigation() {
             }`}
             style={{
               transitionDelay: mobileOpen
-                ? `${NAV_LINKS.length * 70}ms`
+                ? `${navLinks.length * 70}ms`
                 : "0ms",
             }}
           >
