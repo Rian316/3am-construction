@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "3AM Construction Services | Trusted Construction Company in Luzon",
+  title: "3AM Construction Services | Premium Construction Company in Luzon",
   description:
-    "3AM Construction Services is a trusted construction company in Luzon specializing in residential, private, and public projects. Interior and exterior design, fit-outs, construction, and repair.",
+    "3AM Construction Services is a premium construction company in Luzon specializing in residential, private, and public projects. Interior and exterior design, fit-outs, construction, and repair.",
   keywords: [
     "construction company",
     "Luzon construction",
@@ -19,12 +19,15 @@ export const metadata: Metadata = {
     "fit-out works",
     "interior design",
     "3AM Construction Services",
+    "premium construction",
+    "luxury homes Philippines",
   ],
   openGraph: {
     title: "3AM Construction Services",
     description:
       "Building safe, functional, and well-designed spaces for families, businesses, and communities.",
     type: "website",
+    locale: "en_PH",
   },
 };
 

@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useInView } from "@/hooks/useInView";
 import Image from "next/image";
 
 const team = [
@@ -21,37 +21,25 @@ const team = [
 ];
 
 export default function Team() {
-  const [visible, setVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setVisible(true);
-      },
-      { threshold: 0.1 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, isVisible } = useInView({ threshold: 0.1 });
 
   return (
     <section id="team" ref={ref} className="py-16 md:py-24 lg:py-32 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
         <div
           className={`mb-10 md:mb-16 transition-all duration-700 ease-out ${
-            visible ? "translate-y-0" : "translate-y-6"
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-[1px] bg-burgundy" />
-            <span className="text-[11px] font-medium tracking-[0.25em] text-burgundy uppercase">
+            <div className="w-6 h-[1px] bg-gold" />
+            <span className="text-[11px] font-medium tracking-[0.25em] text-gold uppercase">
               Leadership
             </span>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal leading-[1.1] tracking-tight">
             The People Behind{" "}
-            <span className="text-burgundy">3AM Construction</span>
+            <span className="text-gold">3AM Construction</span>
           </h2>
         </div>
 
@@ -59,27 +47,27 @@ export default function Team() {
           {team.map((member, i) => (
             <div
               key={member.name}
-              className={`text-center transition-all duration-700 ease-out ${
-                visible ? "translate-y-0" : "translate-y-6"
+              className={`transition-all duration-700 ease-out ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
               }`}
               style={{ transitionDelay: `${i * 120}ms` }}
             >
-              <div className="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+              <div className="relative aspect-[3/4] overflow-hidden mb-6">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
                   className="object-cover"
-                  sizes="128px"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <h3 className="text-lg font-bold text-charcoal tracking-tight">
                 {member.name}
               </h3>
-              <p className="text-[13px] font-semibold text-burgundy mt-0.5 tracking-[0.04em]">
+              <p className="text-[13px] font-semibold text-gold mt-0.5 tracking-[0.04em]">
                 {member.role}
               </p>
-              <p className="text-[14px] text-charcoal/50 leading-relaxed mt-3 max-w-sm mx-auto">
+              <p className="text-[14px] text-charcoal/50 leading-relaxed mt-3">
                 {member.description}
               </p>
             </div>
@@ -87,8 +75,8 @@ export default function Team() {
         </div>
 
         <div
-          className={`mt-14 relative aspect-[21/8] overflow-hidden transition-all duration-700 ease-out delay-300 ${
-            visible ? "translate-y-0" : "translate-y-6"
+          className={`mt-14 relative aspect-[16/9] md:aspect-[21/8] overflow-hidden transition-all duration-700 ease-out delay-300 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}
         >
           <Image

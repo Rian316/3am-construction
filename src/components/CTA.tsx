@@ -1,89 +1,87 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { useInView } from "@/hooks/useInView";
 
 export default function CTA() {
-  const [visible, setVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setVisible(true);
-      },
-      { threshold: 0.2 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, isVisible } = useInView({ threshold: 0.2 });
 
   return (
-    <section ref={ref} className="py-16 md:py-24 lg:py-32 bg-charcoal relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
-        <div
-          className={`text-center transition-all duration-700 ease-out ${
-            visible ? "translate-y-0" : "translate-y-6"
-          }`}
-        >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-6 h-[1px] bg-burgundy-light" />
-            <span className="text-[11px] font-medium tracking-[0.25em] text-burgundy-light uppercase">
-              Ready to Build?
-            </span>
-            <div className="w-6 h-[1px] bg-burgundy-light" />
-          </div>
+    <section
+      ref={ref}
+      className="relative overflow-hidden bg-charcoal py-20 md:py-28 lg:py-36"
+    >
+      {/* Background Image with Dark Overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/construction-site.jpg"
+          alt="Construction site"
+          fill
+          className="object-cover"
+          quality={80}
+        />
+        <div className="absolute inset-0 bg-charcoal/80" />
+      </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.05] tracking-tight">
-            Let&apos;s Build{" "}
-            <span className="text-burgundy-light">What&apos;s Next</span>
-          </h2>
-
-          <p className="text-[14px] md:text-[15px] text-white/40 max-w-md mx-auto mt-5 leading-relaxed font-light">
-            Whether it&apos;s a new home, a renovation, or a commercial project —
-            we&apos;re ready to bring your vision to life with quality and
-            craftsmanship.
+      {/* Content */}
+      <div
+        className={`relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 flex flex-col items-center text-center transition-all duration-1000 ease-out ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
+      >
+        {/* Eyebrow */}
+        <div className="flex items-center gap-4 mb-8">
+          <span className="h-px w-8 bg-gold" />
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">
+            READY TO BUILD?
           </p>
+          <span className="h-px w-8 bg-gold" />
+        </div>
 
-          <div className="flex flex-wrap justify-center gap-3 mt-8">
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-2 bg-burgundy hover:bg-burgundy-light text-white px-7 py-3 text-[13px] font-semibold tracking-[0.08em] uppercase transition-all duration-300"
+        {/* Main Heading */}
+        <h2 className="font-bold text-white tracking-tight leading-[0.95] mb-8">
+          <span className="block text-3xl md:text-5xl lg:text-6xl xl:text-7xl">
+            LET&apos;S BUILD
+          </span>
+          <span className="block text-3xl md:text-5xl lg:text-6xl xl:text-7xl">
+            SOMETHING
+          </span>
+          <span className="block text-3xl md:text-5xl lg:text-6xl xl:text-7xl">
+            EXCEPTIONAL.
+          </span>
+        </h2>
+
+        {/* Supporting Text */}
+        <p className="text-[14px] md:text-[15px] text-white/40 max-w-md mx-auto leading-relaxed mb-10">
+          Whether it&apos;s a new home, a renovation, or a commercial project —
+          we&apos;re ready to bring your vision to life with quality and
+          craftsmanship.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <button className="bg-gold hover:bg-gold-light text-white px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.08em] transition-colors duration-300">
+            REQUEST A CONSULTATION →
+          </button>
+          <a
+            href="tel:+639556758128"
+            className="flex items-center gap-2 border border-white/20 text-white hover:border-white/40 hover:bg-white/5 px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.08em] transition-all duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              Discuss Your Project
-              <svg
-                className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
-            <a
-              href="tel:+639556758128"
-              className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white px-7 py-3 text-[13px] font-medium tracking-[0.08em] uppercase transition-all duration-300 hover:bg-white/5"
-            >
-              <svg
-                className="w-3.5 h-3.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-                />
-              </svg>
-              Call Us Now
-            </a>
-          </div>
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            CALL US NOW
+          </a>
         </div>
       </div>
     </section>
