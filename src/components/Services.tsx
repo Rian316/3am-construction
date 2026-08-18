@@ -59,14 +59,14 @@ export default function Services() {
           }`}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-[1px] bg-[#B8960C]" />
-            <span className="text-[11px] font-medium tracking-[0.25em] text-[#B8960C] uppercase">
+            <div className="w-6 h-[1px] bg-[#953131]" />
+            <span className="text-[11px] font-medium tracking-[0.25em] text-[#953131] uppercase">
               Our Capabilities
             </span>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal leading-[1.1] tracking-tight">
             Comprehensive Construction{" "}
-            <span className="text-[#B8960C]">Services</span>
+            <span className="text-[#953131]">Services</span>
           </h2>
         </div>
 
@@ -82,7 +82,7 @@ export default function Services() {
               style={{
                 transitionDelay: isVisible ? `${i * 60}ms` : "0ms",
                 backgroundColor:
-                  hoveredIndex === i ? "rgba(184, 150, 12, 0.03)" : "transparent",
+                  hoveredIndex === i ? "rgba(149, 49, 49, 0.03)" : "transparent",
               }}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -93,7 +93,7 @@ export default function Services() {
                 </span>
                 <h3
                   className={`text-base md:text-lg font-bold tracking-tight transition-colors duration-300 ${
-                    hoveredIndex === i ? "text-[#B8960C]" : "text-charcoal"
+                    hoveredIndex === i ? "text-[#953131]" : "text-charcoal"
                   }`}
                 >
                   {service.title}
@@ -112,7 +112,7 @@ export default function Services() {
                 <svg
                   className={`w-4 h-4 shrink-0 transition-all duration-300 ${
                     hoveredIndex === i
-                      ? "text-[#B8960C] translate-x-1"
+                      ? "text-[#953131] translate-x-1"
                       : "text-charcoal/15"
                   }`}
                   fill="none"

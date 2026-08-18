@@ -78,8 +78,8 @@ export default function Contact() {
           >
             <div className="mb-10">
               <div className="mb-4 flex items-center gap-4">
-                <span className="block h-px w-12 bg-gold" />
-                <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-gold">
+                <span className="block h-px w-12 bg-[#953131]" />
+                <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#953131]">
                   Get In Touch
                 </span>
               </div>
@@ -91,7 +91,7 @@ export default function Contact() {
             <div className="space-y-5">
               {CONTACT_ITEMS.map((item) => (
                 <div key={item.label} className="flex items-start gap-3">
-                  <span className="mt-0.5 text-gold/60">{item.icon}</span>
+                  <span className="mt-0.5 text-[#953131]/60">{item.icon}</span>
                   <span className="text-[14px] font-light text-charcoal/70">
                     {item.label}
                   </span>
@@ -118,7 +118,7 @@ export default function Contact() {
                 <input
                   id="name"
                   type="text"
-                  className="w-full border-b border-charcoal/15 bg-transparent py-3 text-[14px] text-charcoal outline-none transition-colors focus:border-gold"
+                  className="w-full border-b border-charcoal/15 bg-transparent py-3 text-[14px] text-charcoal outline-none transition-colors focus:border-[#953131]"
                   placeholder="Your name"
                 />
               </div>
@@ -132,7 +132,7 @@ export default function Contact() {
                 <input
                   id="email"
                   type="email"
-                  className="w-full border-b border-charcoal/15 bg-transparent py-3 text-[14px] text-charcoal outline-none transition-colors focus:border-gold"
+                  className="w-full border-b border-charcoal/15 bg-transparent py-3 text-[14px] text-charcoal outline-none transition-colors focus:border-[#953131]"
                   placeholder="your@email.com"
                 />
               </div>
@@ -148,7 +148,7 @@ export default function Contact() {
               <input
                 id="phone"
                 type="tel"
-                className="w-full border-b border-charcoal/15 bg-transparent py-3 text-[14px] text-charcoal outline-none transition-colors focus:border-gold"
+                className="w-full border-b border-charcoal/15 bg-transparent py-3 text-[14px] text-charcoal outline-none transition-colors focus:border-[#953131]"
                 placeholder="Phone number"
               />
             </div>
@@ -162,7 +162,7 @@ export default function Contact() {
               </label>
               <select
                 id="project-type"
-                className="w-full appearance-none border-b border-charcoal/15 bg-transparent py-3 text-[14px] text-charcoal outline-none transition-colors focus:border-gold"
+                className="w-full appearance-none border-b border-charcoal/15 bg-transparent py-3 text-[14px] text-charcoal outline-none transition-colors focus:border-[#953131]"
                 defaultValue=""
               >
                 <option value="" disabled>
@@ -186,7 +186,7 @@ export default function Contact() {
               <textarea
                 id="message"
                 rows={4}
-                className="w-full resize-none border-b border-charcoal/15 bg-transparent py-3 text-[14px] text-charcoal outline-none transition-colors focus:border-gold"
+                className="w-full resize-none border-b border-charcoal/15 bg-transparent py-3 text-[14px] text-charcoal outline-none transition-colors focus:border-[#953131]"
                 placeholder="Tell us about your project"
               />
             </div>

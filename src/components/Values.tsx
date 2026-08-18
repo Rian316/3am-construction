@@ -88,7 +88,7 @@ export default function Values() {
               <div className="space-y-3">
                 {mission.map((item, i) => (
                   <div key={i} className="flex gap-3 items-start">
-                    <span className="text-gold font-bold text-[13px] mt-0.5 shrink-0">
+                    <span className="text-[#953131] font-bold text-[13px] mt-0.5 shrink-0">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <p className="text-[14px] text-charcoal/55 leading-relaxed">
@@ -113,7 +113,7 @@ export default function Values() {
               {coreValues.map((value) => (
                 <div
                   key={value.title}
-                  className="border-l-2 border-gold/20 pl-5 py-1.5 hover:border-gold transition-colors duration-300"
+                  className="border-l-2 border-[#953131]/20 pl-5 py-1.5 hover:border-[#953131] transition-colors duration-300"
                 >
                   <h4 className="text-[15px] font-bold text-charcoal tracking-tight mb-1.5">
                     {value.title}

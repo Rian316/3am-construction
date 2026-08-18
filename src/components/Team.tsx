@@ -32,14 +32,14 @@ export default function Team() {
           }`}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-[1px] bg-gold" />
-            <span className="text-[11px] font-medium tracking-[0.25em] text-gold uppercase">
+            <div className="w-6 h-[1px] bg-[#953131]" />
+            <span className="text-[11px] font-medium tracking-[0.25em] text-[#953131] uppercase">
               Leadership
             </span>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal leading-[1.1] tracking-tight">
             The People Behind{" "}
-            <span className="text-gold">3AM Construction</span>
+            <span className="text-[#953131]">3AM Construction</span>
           </h2>
         </div>
 
@@ -64,7 +64,7 @@ export default function Team() {
               <h3 className="text-lg font-bold text-charcoal tracking-tight">
                 {member.name}
               </h3>
-              <p className="text-[13px] font-semibold text-gold mt-0.5 tracking-[0.04em]">
+              <p className="text-[13px] font-semibold text-[#953131] mt-0.5 tracking-[0.04em]">
                 {member.role}
               </p>
               <p className="text-[14px] text-charcoal/50 leading-relaxed mt-3">

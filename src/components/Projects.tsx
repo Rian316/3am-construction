@@ -99,7 +99,7 @@ export default function Projects() {
           }`}
         >
           <div>
-            <span className="block text-[#B8960C] text-[13px] tracking-[0.2em] uppercase mb-3">
+            <span className="block text-[#953131] text-[13px] tracking-[0.2em] uppercase mb-3">
               Selected Projects
             </span>
             <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -174,7 +174,7 @@ export default function Projects() {
                 onClick={() => setActiveIndex(index)}
                 className={`aspect-square overflow-hidden cursor-pointer relative ${
                   index === activeIndex
-                    ? "ring-1 ring-[#B8960C]"
+                    ? "ring-1 ring-[#953131]"
                     : "opacity-30 hover:opacity-60 transition-opacity"
                 }`}
                 aria-label={`View ${project.title}`}
@@ -215,7 +215,7 @@ export default function Projects() {
         >
           <button
             onClick={closeLightbox}
-            className="absolute top-6 right-6 w-12 h-12 text-white hover:text-[#B8960C] flex items-center justify-center transition-colors z-10"
+            className="absolute top-6 right-6 w-12 h-12 text-white hover:text-[#953131] flex items-center justify-center transition-colors z-10"
             aria-label="Close lightbox"
           >
             <svg
@@ -238,7 +238,7 @@ export default function Projects() {
               e.stopPropagation();
               goToPrev();
             }}
-            className="absolute left-4 md:left-8 w-14 h-14 text-white hover:text-[#B8960C] flex items-center justify-center transition-colors z-10"
+            className="absolute left-4 md:left-8 w-14 h-14 text-white hover:text-[#953131] flex items-center justify-center transition-colors z-10"
             aria-label="Previous project"
           >
             <svg
@@ -280,7 +280,7 @@ export default function Projects() {
               e.stopPropagation();
               goToNext();
             }}
-            className="absolute right-4 md:right-8 w-14 h-14 text-white hover:text-[#B8960C] flex items-center justify-center transition-colors z-10"
+            className="absolute right-4 md:right-8 w-14 h-14 text-white hover:text-[#953131] flex items-center justify-center transition-colors z-10"
             aria-label="Next project"
           >
             <svg

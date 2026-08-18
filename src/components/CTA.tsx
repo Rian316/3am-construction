@@ -31,11 +31,11 @@ export default function CTA() {
       >
         {/* Eyebrow */}
         <div className="flex items-center gap-4 mb-8">
-          <span className="h-px w-8 bg-gold" />
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">
+          <span className="h-px w-8 bg-[#953131]" />
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#953131]">
             READY TO BUILD?
           </p>
-          <span className="h-px w-8 bg-gold" />
+          <span className="h-px w-8 bg-[#953131]" />
         </div>
 
         {/* Main Heading */}
@@ -60,7 +60,7 @@ export default function CTA() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <button className="bg-gold hover:bg-gold-light text-white px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.08em] transition-colors duration-300">
+          <button className="bg-[#953131] hover:bg-[#953131]/80 text-white px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.08em] transition-colors duration-300">
             REQUEST A CONSULTATION →
           </button>
           <a

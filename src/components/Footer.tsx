@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-[#1A1A1A] text-white">
@@ -6,27 +8,7 @@ export default function Footer() {
           {/* Column 1 - Brand */}
           <div>
             <a href="#" className="flex items-center gap-2.5 mb-4">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 28 28"
-                fill="none"
-                className="text-white"
-              >
-                <path
-                  d="M14 1L25.66 7.5V20.5L14 27L2.34 20.5V7.5L14 1Z"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  fill="none"
-                />
-                <path
-                  d="M7 10L14 6L21 10V18L14 22L7 18V10Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <span className="text-sm font-bold tracking-widest uppercase">
-                3AM Construction
-              </span>
+              <Image src="/images/logo.png" alt="3AM Construction Services" width={120} height={35} className="h-7 w-auto" />
             </a>
             <p className="text-[13px] text-white/35 leading-relaxed">
               Delivering exceptional construction and design solutions with
@@ -50,7 +32,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="text-[13px] text-white/35 hover:text-[#B8960C] transition-colors"
+                    className="text-[13px] text-white/35 hover:text-[#953131] transition-colors"
                   >
                     {item.label}
                   </a>
@@ -76,7 +58,7 @@ export default function Footer() {
                 <li key={item}>
                   <a
                     href="#services"
-                    className="text-[13px] text-white/35 hover:text-[#B8960C] transition-colors"
+                    className="text-[13px] text-white/35 hover:text-[#953131] transition-colors"
                   >
                     {item}
                   </a>
@@ -94,7 +76,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:3am.constservices@gmail.com"
-                  className="text-[13px] text-white/35 hover:text-[#B8960C] transition-colors"
+                  className="text-[13px] text-white/35 hover:text-[#953131] transition-colors"
                 >
                   3am.constservices@gmail.com
                 </a>
@@ -102,7 +84,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+639556758128"
-                  className="text-[13px] text-white/35 hover:text-[#B8960C] transition-colors"
+                  className="text-[13px] text-white/35 hover:text-[#953131] transition-colors"
                 >
                   0955 675 8128
                 </a>
@@ -110,7 +92,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+639912620627"
-                  className="text-[13px] text-white/35 hover:text-[#B8960C] transition-colors"
+                  className="text-[13px] text-white/35 hover:text-[#953131] transition-colors"
                 >
                   0991 262 0627
                 </a>
@@ -120,7 +102,7 @@ export default function Footer() {
                   href="https://facebook.com/3amconstructionph"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] text-white/35 hover:text-[#B8960C] transition-colors"
+                  className="text-[13px] text-white/35 hover:text-[#953131] transition-colors"
                 >
                   facebook.com/3amconstructionph
                 </a>

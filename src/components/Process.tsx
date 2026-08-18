@@ -53,14 +53,14 @@ export default function Process() {
           }`}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-[1px] bg-gold" />
-            <span className="text-[11px] font-medium tracking-[0.25em] text-gold uppercase">
+            <div className="w-6 h-[1px] bg-[#953131]" />
+            <span className="text-[11px] font-medium tracking-[0.25em] text-[#953131] uppercase">
               How We Work
             </span>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal leading-[1.1] tracking-tight">
             A Clear & Straightforward{" "}
-            <span className="text-gold">Process</span>
+            <span className="text-[#953131]">Process</span>
           </h2>
           <p className="text-charcoal/50 mt-4 max-w-lg text-[14px] leading-relaxed">
             We follow a proven process to ensure every project runs smoothly from
@@ -86,7 +86,7 @@ export default function Process() {
                   }`}
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
-                  <span className="text-2xl font-bold text-gold mb-3">
+                  <span className="text-2xl font-bold text-[#953131] mb-3">
                     {step.number}
                   </span>
                   <h3 className="text-sm font-bold text-charcoal tracking-[0.15em] uppercase mb-2">
@@ -116,7 +116,7 @@ export default function Process() {
               >
                 <div className="absolute -left-8 top-0 w-4 h-[1px] bg-charcoal/10" />
                 <div className="flex items-start gap-4">
-                  <span className="text-xl font-bold text-gold shrink-0">
+                  <span className="text-xl font-bold text-[#953131] shrink-0">
                     {step.number}
                   </span>
                   <div>

@@ -21,7 +21,6 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen min-h-[600px] max-h-[1000px] flex items-end overflow-hidden">
-      {/* Background Image */}
       <div className="absolute inset-0">
         <Image
           src="/images/hero-house.jpg"
@@ -31,44 +30,38 @@ export default function Hero() {
           priority
           sizes="100vw"
         />
-        {/* Gradients */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 w-full pb-14 md:pb-20">
-        {/* Eyebrow */}
         <div style={fadeUp(0)} className="flex items-center gap-3 mb-5">
-          <div className="w-8 h-[1px] bg-[#B8960C]" />
-          <span className="text-[11px] font-medium tracking-[0.3em] text-[#B8960C] uppercase">
-            Est. 2018 · Luzon, Philippines
+          <div className="w-8 h-[1px] bg-[#953131]" />
+          <span className="text-[11px] font-medium tracking-[0.3em] text-white/60 uppercase">
+            Est. 2018 &middot; Luzon, Philippines
           </span>
         </div>
 
-        {/* Headline */}
         <h1 style={fadeUp(150)} className="max-w-4xl">
           <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight">
             BUILDING WITH{" "}
-            <span className="text-[#D4AF37]">PURPOSE.</span>
+            <span className="text-[#953131]">PURPOSE.</span>
           </span>
           <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight">
             BUILT TO{" "}
-            <span className="text-[#D4AF37]">LAST.</span>
+            <span className="text-[#953131]">LAST.</span>
           </span>
         </h1>
 
-        {/* Supporting Text */}
         <p style={fadeUp(300)} className="text-sm md:text-base text-white/50 max-w-md mt-5 leading-relaxed font-light">
           Precision construction and design for residential, commercial, and
           public projects across Luzon.
         </p>
 
-        {/* CTAs */}
         <div style={fadeUp(450)} className="flex flex-wrap gap-3 mt-7">
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2.5 bg-[#1A1A1A] hover:bg-[#2A2A2A] text-white px-6 py-3.5 text-[13px] font-medium tracking-[0.08em] uppercase transition-all duration-300 border-l-2 border-[#D4AF37]"
+            className="group inline-flex items-center gap-2.5 bg-[#953131] hover:bg-[#A93E3E] text-white px-6 py-3.5 text-[13px] font-medium tracking-[0.08em] uppercase transition-all duration-300"
           >
             REQUEST A CONSULTATION
             <svg
@@ -107,7 +100,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2">
         <span className="text-[9px] tracking-[0.2em] text-white/30 uppercase">
           Scroll

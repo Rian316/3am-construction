@@ -16,8 +16,8 @@ export default function About() {
             }`}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-6 h-[1px] bg-[#B8960C]" />
-              <span className="text-[11px] font-medium tracking-[0.25em] text-[#B8960C] uppercase">
+              <div className="w-6 h-[1px] bg-[#953131]" />
+              <span className="text-[11px] font-medium tracking-[0.25em] text-[#953131] uppercase">
                 Who We Are
               </span>
             </div>
