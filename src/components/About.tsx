@@ -84,10 +84,10 @@ export default function About() {
                   sizes="(max-width: 1024px) 100vw, 60vw"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-4 md:-bottom-8 md:-left-8 bg-[#1A1A1A] text-white px-6 py-5 md:px-8 md:py-6">
-                <div className="text-3xl md:text-4xl font-bold tracking-tight font-display">7+</div>
-                <div className="text-[10px] md:text-[11px] tracking-[0.15em] text-white/50 uppercase mt-1">
-                  Years of Service in Luzon
+              <div className="absolute -bottom-1 -left-1 md:-bottom-3 md:-left-3 bg-[#1A1A1A] text-white px-5 py-4 md:px-7 md:py-5">
+                <div className="text-2xl md:text-3xl font-bold tracking-tight font-display">7+</div>
+                <div className="text-[9px] md:text-[10px] tracking-[0.12em] text-white/50 uppercase mt-1">
+                  Years in Luzon
                 </div>
               </div>
             </div>
