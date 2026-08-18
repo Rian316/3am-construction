@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import TrustMetrics from "@/components/TrustMetrics";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
@@ -68,6 +69,7 @@ export default function Home() {
       <StickyDesktopCTA />
       <Hero />
       <TrustMetrics />
+      <WhyChooseUs />
       <About />
       <Services />
       <Projects />

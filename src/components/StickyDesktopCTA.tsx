@@ -25,7 +25,7 @@ export default function StickyDesktopCTA() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 flex items-center justify-between h-12">
           <div className="flex items-center gap-4">
             <span className="text-[11px] text-white/50 font-medium">
-              Ready to start your project?
+              Residential & Commercial Construction Across Luzon
             </span>
           </div>
           <div className="flex items-center gap-3">

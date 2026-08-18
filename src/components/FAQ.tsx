@@ -15,6 +15,11 @@ const faqs = [
       "Timelines vary based on scope and complexity. A standard residential build typically takes 6–12 months. Renovations and fit-outs can range from 2–6 months. We provide a detailed timeline during the consultation phase.",
   },
   {
+    question: "What is your process from consultation to completion?",
+    answer:
+      "Our process is designed for clarity and peace of mind. It begins with a free consultation where we discuss your vision, budget, and timeline. We then provide a detailed, transparent quote. Once approved, we handle all permits, schedule construction, and keep you updated with regular progress reports. Throughout the build, you have direct access to our project manager. Finally, we conduct a thorough walkthrough before final turnover to ensure every detail meets your expectations.",
+  },
+  {
     question: "Do you handle permits and documentation?",
     answer:
       "Yes. We manage all necessary permits, building applications, and regulatory compliance as part of our project management service. You won't need to navigate the paperwork alone.",

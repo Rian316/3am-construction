@@ -332,7 +332,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="bg-[#953131] px-8 py-3.5 text-[12px] font-semibold uppercase tracking-[0.1em] text-white transition-all hover:bg-[#A93E3E] disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="btn-premium bg-[#953131] px-8 py-3.5 text-[12px] font-semibold uppercase tracking-[0.1em] text-white transition-all hover:bg-[#A93E3E] disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {submitting ? "Sending..." : "Send Inquiry"}
                 </button>

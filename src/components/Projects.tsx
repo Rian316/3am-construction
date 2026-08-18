@@ -11,6 +11,7 @@ const projects = [
     slug: "modern-kitchen-renovation",
     title: "Modern Kitchen Renovation",
     category: "Residential",
+    client: "Private Homeowner",
     scope: "Custom Cabinetry, Lighting, Space Optimization",
     location: "Metro Manila",
     year: "2024",
@@ -22,6 +23,7 @@ const projects = [
     slug: "contemporary-living-space",
     title: "Contemporary Living Space",
     category: "Residential",
+    client: "Private Homeowner",
     scope: "Open-Plan Redesign, Smart Lighting, Custom Woodwork",
     location: "Luzon",
     year: "2024",
@@ -33,6 +35,7 @@ const projects = [
     slug: "luxury-kitchen-fit-out",
     title: "Luxury Kitchen Fit-Out",
     category: "Fit-Out",
+    client: "Private Homeowner",
     scope: "Italian Appliances, Quartz Countertops, Custom Cabinetry",
     location: "Metro Manila",
     year: "2023",
@@ -44,6 +47,7 @@ const projects = [
     slug: "modern-bathroom-design",
     title: "Modern Bathroom Design",
     category: "Residential",
+    client: "Private Homeowner",
     scope: "Waterproofing, Porcelain Tiling, Rain Shower",
     location: "Luzon",
     year: "2024",
@@ -55,6 +59,7 @@ const projects = [
     slug: "premium-cabinetry-work",
     title: "Premium Cabinetry Work",
     category: "Fit-Out",
+    client: "Private Homeowner",
     scope: "Custom Wardrobes, Kitchen Cabinets, Entertainment Unit",
     location: "Metro Manila",
     year: "2023",
@@ -66,6 +71,7 @@ const projects = [
     slug: "urban-condo-interior",
     title: "Urban Condo Interior",
     category: "Residential",
+    client: "Private Homeowner",
     scope: "Multi-Functional Furniture, Built-In Storage, Styling",
     location: "Metro Manila",
     year: "2024",
@@ -77,6 +83,7 @@ const projects = [
     slug: "open-plan-living",
     title: "Open Plan Living",
     category: "Residential",
+    client: "Private Homeowner",
     scope: "Structural Modification, Kitchen Redesign, Flooring",
     location: "Luzon",
     year: "2023",
@@ -88,6 +95,7 @@ const projects = [
     slug: "executive-office-suite",
     title: "Executive Office Suite",
     category: "Commercial",
+    client: "Corporate Client",
     scope: "Custom Furniture, Glass Partitions, AV Integration",
     location: "Metro Manila",
     year: "2024",
@@ -193,6 +201,11 @@ export default function Projects() {
               <p className="text-white/50 text-[13px] mt-2 max-w-md">
                 {activeProject.scope}
               </p>
+              <div className="flex items-center gap-3 mt-3">
+                <span className="text-white/30 text-[11px] tracking-wide">
+                  {activeProject.client}
+                </span>
+              </div>
               <span className="inline-flex items-center gap-2 mt-4 text-[#953131] text-[11px] font-semibold uppercase tracking-wider group-hover:gap-3 transition-all">
                 View Case Study
                 <svg className="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -227,7 +240,7 @@ export default function Projects() {
                     {project.title}
                   </span>
                   <span className="text-white/40 text-[10px] tracking-wide block mt-0.5">
-                    {project.scope.split(",")[0]}
+                    {project.client}
                   </span>
                 </div>
               </Link>

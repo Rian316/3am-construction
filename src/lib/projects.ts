@@ -2,6 +2,7 @@ export interface Project {
   slug: string;
   title: string;
   category: string;
+  client: string;
   location: string;
   year: string;
   image: string;
@@ -21,6 +22,7 @@ export const projects: Project[] = [
     slug: "modern-kitchen-renovation",
     title: "Modern Kitchen Renovation",
     category: "Residential",
+    client: "Private Homeowner",
     location: "Metro Manila",
     year: "2024",
     image: "/images/projects/kitchen-modern.jpg",
@@ -47,6 +49,7 @@ export const projects: Project[] = [
     slug: "contemporary-living-space",
     title: "Contemporary Living Space",
     category: "Residential",
+    client: "Private Homeowner",
     location: "Luzon",
     year: "2024",
     image: "/images/projects/living-room.jpg",
@@ -71,6 +74,7 @@ export const projects: Project[] = [
     slug: "luxury-kitchen-fit-out",
     title: "Luxury Kitchen Fit-Out",
     category: "Fit-Out",
+    client: "Private Homeowner",
     location: "Metro Manila",
     year: "2023",
     image: "/images/projects/luxury-kitchen.jpg",
@@ -95,6 +99,7 @@ export const projects: Project[] = [
     slug: "modern-bathroom-design",
     title: "Modern Bathroom Design",
     category: "Residential",
+    client: "Private Homeowner",
     location: "Luzon",
     year: "2024",
     image: "/images/projects/bathroom-modern.jpg",
@@ -119,6 +124,7 @@ export const projects: Project[] = [
     slug: "premium-cabinetry-work",
     title: "Premium Cabinetry Work",
     category: "Fit-Out",
+    client: "Private Homeowner",
     location: "Metro Manila",
     year: "2023",
     image: "/images/projects/cabinetry.jpg",
@@ -143,6 +149,7 @@ export const projects: Project[] = [
     slug: "urban-condo-interior",
     title: "Urban Condo Interior",
     category: "Residential",
+    client: "Private Homeowner",
     location: "Metro Manila",
     year: "2024",
     image: "/images/projects/interior-wood.jpg",
@@ -167,6 +174,7 @@ export const projects: Project[] = [
     slug: "open-plan-living",
     title: "Open Plan Living",
     category: "Residential",
+    client: "Private Homeowner",
     location: "Luzon",
     year: "2023",
     image: "/images/projects/open-living.jpg",
@@ -191,6 +199,7 @@ export const projects: Project[] = [
     slug: "executive-office-suite",
     title: "Executive Office Suite",
     category: "Commercial",
+    client: "Corporate Client",
     location: "Metro Manila",
     year: "2024",
     image: "/images/projects/office-desk.jpg",
