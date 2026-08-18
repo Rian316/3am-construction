@@ -64,7 +64,7 @@ export default function Services() {
               What We Do
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em] font-display">
+          <h2 className="text-[1.75rem] md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em] font-display">
             Construction Services{" "}
             <span className="text-[#953131]">Built on Experience</span>
           </h2>
@@ -95,7 +95,7 @@ export default function Services() {
                   {service.number}
                 </span>
                 <h3
-                  className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${
+                  className={`text-[15px] md:text-xl font-bold tracking-tight transition-colors duration-300 ${
                     hoveredIndex === i ? "text-[#953131]" : "text-charcoal"
                   }`}
                 >
