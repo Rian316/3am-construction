@@ -34,41 +34,41 @@ export default function Values() {
     <section
       id="values"
       ref={sectionRef}
-      className="py-16 md:py-24 lg:py-32 bg-stone"
+      className="py-20 md:py-28 lg:py-36 bg-stone"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
         {/* Top Statement */}
         <div
-          className={`text-center mb-12 md:mb-16 transition-all duration-700 ease-out ${
+          className={`text-center mb-16 md:mb-20 transition-all duration-700 ease-out ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}
         >
-          <p className="text-xl md:text-2xl text-charcoal/40 font-light tracking-wide mb-3">
-            BUILT ON
+          <p className="text-lg md:text-xl text-charcoal/35 font-light tracking-[0.15em] uppercase mb-4">
+            Built on
           </p>
-          <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal tracking-tight leading-[1.1]">
+          <p className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal tracking-[-0.02em] leading-[1.0]">
             <span className="block">DISCIPLINE.</span>
-            <span className="block">PRECISION.</span>
-            <span className="block">TRUST.</span>
+            <span className="block mt-1">PRECISION.</span>
+            <span className="block mt-1">TRUST.</span>
           </p>
-          <p className="mt-6 text-[14px] text-charcoal/50 max-w-lg mx-auto leading-relaxed">
+          <p className="mt-8 text-[15px] text-charcoal/45 max-w-lg mx-auto leading-[1.7]">
             These principles guide every project we undertake, ensuring
             excellence in every detail.
           </p>
         </div>
 
         {/* Two Columns */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Column - Vision & Mission */}
           <div
             className={`transition-all duration-700 ease-out delay-150 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
             }`}
           >
-            <h3 className="text-base font-bold text-charcoal tracking-tight mb-4">
+            <h3 className="text-[13px] font-bold text-charcoal tracking-[0.12em] uppercase mb-5">
               Our Vision
             </h3>
-            <div className="space-y-4 text-[14px] text-charcoal/55 leading-relaxed">
+            <div className="space-y-5 text-[15px] text-charcoal/50 leading-[1.75]">
               <p>
                 To be a trusted construction company delivering quality
                 residential, private, and public projects with integrity and
@@ -81,17 +81,17 @@ export default function Values() {
               </p>
             </div>
 
-            <div className="mt-8">
-              <h3 className="text-base font-bold text-charcoal tracking-tight mb-4">
+            <div className="mt-10">
+              <h3 className="text-[13px] font-bold text-charcoal tracking-[0.12em] uppercase mb-5">
                 Our Mission
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {mission.map((item, i) => (
-                  <div key={i} className="flex gap-3 items-start">
-                    <span className="text-[#953131] font-bold text-[13px] mt-0.5 shrink-0">
+                  <div key={i} className="flex gap-4 items-start">
+                    <span className="text-[#953131] font-bold text-[12px] mt-1 shrink-0 font-mono">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <p className="text-[14px] text-charcoal/55 leading-relaxed">
+                    <p className="text-[15px] text-charcoal/50 leading-[1.75]">
                       {item}
                     </p>
                   </div>
@@ -106,19 +106,19 @@ export default function Values() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
             }`}
           >
-            <h3 className="text-base font-bold text-charcoal tracking-tight mb-6">
+            <h3 className="text-[13px] font-bold text-charcoal tracking-[0.12em] uppercase mb-8">
               Core Values
             </h3>
-            <div className="space-y-6">
+            <div className="space-y-8">
               {coreValues.map((value) => (
                 <div
                   key={value.title}
-                  className="border-l-2 border-[#953131]/20 pl-5 py-1.5 hover:border-[#953131] transition-colors duration-300"
+                  className="border-l-2 border-[#953131]/20 pl-6 py-2 hover:border-[#953131] transition-colors duration-300"
                 >
-                  <h4 className="text-[15px] font-bold text-charcoal tracking-tight mb-1.5">
+                  <h4 className="text-[16px] font-bold text-charcoal tracking-tight mb-2">
                     {value.title}
                   </h4>
-                  <p className="text-[14px] text-charcoal/50 leading-relaxed">
+                  <p className="text-[15px] text-charcoal/45 leading-[1.75]">
                     {value.description}
                   </p>
                 </div>

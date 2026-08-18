@@ -50,21 +50,21 @@ export default function Services() {
     <section
       id="services"
       ref={ref}
-      className="py-16 md:py-24 lg:py-32 bg-[#FAFAF8]"
+      className="py-20 md:py-28 lg:py-36 bg-[#FAFAF8]"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
         <div
-          className={`mb-10 md:mb-16 transition-all duration-700 ease-out ${
+          className={`mb-12 md:mb-20 transition-all duration-700 ease-out ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-[1px] bg-[#953131]" />
-            <span className="text-[11px] font-medium tracking-[0.25em] text-[#953131] uppercase">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-[1px] bg-[#953131]" />
+            <span className="text-[10px] font-semibold tracking-[0.3em] text-[#953131] uppercase">
               Our Capabilities
             </span>
           </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal leading-[1.1] tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em]">
             Comprehensive Construction{" "}
             <span className="text-[#953131]">Services</span>
           </h2>
@@ -74,7 +74,7 @@ export default function Services() {
           {services.map((service, i) => (
             <div
               key={service.number}
-              className={`group border-t border-charcoal/8 transition-all duration-500 ease-out ${
+              className={`group border-t border-charcoal/8 transition-all duration-600 ease-out ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-4 opacity-0"
@@ -82,7 +82,7 @@ export default function Services() {
               style={{ transitionDelay: isVisible ? `${i * 60}ms` : "0ms" }}
             >
               <div
-                className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 py-5 md:py-6 cursor-pointer focus-within:bg-[rgba(149,49,49,0.03)] transition-colors duration-300"
+                className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-6 md:py-7 cursor-pointer focus-within:bg-[rgba(149,49,49,0.02)] transition-colors duration-300 px-2 -mx-2"
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 onFocus={() => setHoveredIndex(i)}
@@ -91,11 +91,11 @@ export default function Services() {
                 role="button"
                 aria-label={`${service.title}: ${service.description}`}
               >
-                <span className="text-xs text-charcoal/20 w-12 shrink-0">
+                <span className="text-[11px] text-charcoal/20 w-10 shrink-0 font-mono">
                   {service.number}
                 </span>
                 <h3
-                  className={`text-base md:text-lg font-bold tracking-tight transition-colors duration-300 ${
+                  className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${
                     hoveredIndex === i ? "text-[#953131]" : "text-charcoal"
                   }`}
                 >
@@ -103,10 +103,10 @@ export default function Services() {
                 </h3>
                 <div className="flex-1 hidden md:block">
                   <p
-                    className={`text-[13px] text-charcoal/45 max-w-md transition-all duration-300 ${
+                    className={`text-[14px] text-charcoal/40 max-w-md leading-relaxed transition-all duration-400 ${
                       hoveredIndex === i
                         ? "opacity-100 translate-x-0"
-                        : "opacity-0 -translate-x-3"
+                        : "opacity-0 -translate-x-4"
                     }`}
                   >
                     {service.description}
@@ -123,14 +123,10 @@ export default function Services() {
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>
-              <p className="md:hidden text-[13px] text-charcoal/45 pb-4 -mt-2">
+              <p className="md:hidden text-[14px] text-charcoal/40 pb-5 -mt-2 leading-relaxed px-2">
                 {service.description}
               </p>
             </div>

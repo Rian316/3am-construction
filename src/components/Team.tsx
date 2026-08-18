@@ -24,26 +24,26 @@ export default function Team() {
   const { ref, isVisible } = useInView({ threshold: 0.1 });
 
   return (
-    <section id="team" ref={ref} className="py-16 md:py-24 lg:py-32 bg-white">
+    <section id="team" ref={ref} className="py-20 md:py-28 lg:py-36 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
         <div
-          className={`mb-10 md:mb-16 transition-all duration-700 ease-out ${
+          className={`mb-12 md:mb-20 transition-all duration-700 ease-out ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-[1px] bg-[#953131]" />
-            <span className="text-[11px] font-medium tracking-[0.25em] text-[#953131] uppercase">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-[1px] bg-[#953131]" />
+            <span className="text-[10px] font-semibold tracking-[0.3em] text-[#953131] uppercase">
               Leadership
             </span>
           </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal leading-[1.1] tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em]">
             The People Behind{" "}
             <span className="text-[#953131]">3AM Construction</span>
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
           {team.map((member, i) => (
             <div
               key={member.name}
@@ -52,7 +52,7 @@ export default function Team() {
               }`}
               style={{ transitionDelay: `${i * 120}ms` }}
             >
-              <div className="relative aspect-[3/4] overflow-hidden mb-6">
+              <div className="relative aspect-[3/4] overflow-hidden mb-7">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -61,21 +61,22 @@ export default function Team() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <h3 className="text-lg font-bold text-charcoal tracking-tight">
+              <h3 className="text-xl font-bold text-charcoal tracking-tight">
                 {member.name}
               </h3>
-              <p className="text-[13px] font-semibold text-[#953131] mt-0.5 tracking-[0.04em]">
+              <p className="text-[12px] font-semibold text-[#953131] mt-1 tracking-[0.08em] uppercase">
                 {member.role}
               </p>
-              <p className="text-[14px] text-charcoal/50 leading-relaxed mt-3">
+              <p className="text-[15px] text-charcoal/45 leading-[1.75] mt-4">
                 {member.description}
               </p>
             </div>
           ))}
         </div>
 
+        {/* Team photo banner with quote */}
         <div
-          className={`mt-14 relative aspect-[16/9] md:aspect-[21/8] overflow-hidden transition-all duration-700 ease-out delay-300 ${
+          className={`mt-16 md:mt-20 relative aspect-[16/9] md:aspect-[21/8] overflow-hidden transition-all duration-700 ease-out delay-300 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}
         >
@@ -86,11 +87,13 @@ export default function Team() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-charcoal/40" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <p className="text-white text-base md:text-lg font-light tracking-wide text-center px-6">
-              &ldquo;Built on integrity, driven by craftsmanship&rdquo;
-            </p>
+          <div className="absolute inset-0 bg-[#1A1A1A]/50" />
+          <div className="absolute inset-0 flex items-center justify-center px-6">
+            <blockquote className="text-center max-w-2xl">
+              <p className="text-white text-lg md:text-xl lg:text-2xl font-light tracking-wide leading-[1.6] italic">
+                &ldquo;Built on integrity, driven by craftsmanship&rdquo;
+              </p>
+            </blockquote>
           </div>
         </div>
       </div>

@@ -9,7 +9,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "3AM Construction Services | Premium Construction Company in Luzon",
+  title: {
+    default: "3AM Construction Services | Premium Construction Company in Luzon",
+    template: "%s | 3AM Construction Services",
+  },
   description:
     "3AM Construction Services is a premium construction company in Luzon specializing in residential, private, and public projects. Interior and exterior design, fit-outs, construction, and repair.",
   keywords: [
@@ -21,13 +24,36 @@ export const metadata: Metadata = {
     "3AM Construction Services",
     "premium construction",
     "luxury homes Philippines",
+    "construction contractor Luzon",
+    "building construction Philippines",
   ],
+  authors: [{ name: "3AM Construction Services" }],
+  creator: "3AM Construction Services",
+  metadataBase: new URL("https://3amconstruction.com"),
   openGraph: {
-    title: "3AM Construction Services",
+    title: "3AM Construction Services | Premium Construction Company in Luzon",
     description:
-      "Building safe, functional, and well-designed spaces for families, businesses, and communities.",
+      "Building safe, functional, and well-designed spaces for families, businesses, and communities across Luzon, Philippines.",
     type: "website",
     locale: "en_PH",
+    siteName: "3AM Construction Services",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "3AM Construction Services",
+    description:
+      "Premium construction company in Luzon. Residential, private, and public projects.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -38,6 +64,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className="min-h-full flex flex-col font-sans antialiased">
         {children}
       </body>
