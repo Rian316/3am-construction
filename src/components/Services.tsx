@@ -74,21 +74,24 @@ export default function Services() {
           {services.map((service, i) => (
             <div
               key={service.number}
-              className={`border-t border-charcoal/8 transition-all duration-500 ease-out ${
+              className={`group border-t border-charcoal/8 transition-all duration-500 ease-out ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-4 opacity-0"
               }`}
-              style={{
-                transitionDelay: isVisible ? `${i * 60}ms` : "0ms",
-                backgroundColor:
-                  hoveredIndex === i ? "rgba(149, 49, 49, 0.03)" : "transparent",
-              }}
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              style={{ transitionDelay: isVisible ? `${i * 60}ms` : "0ms" }}
             >
-              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 py-5 md:py-6 cursor-pointer">
-                <span className="text-xs font-mono text-charcoal/20 w-12 shrink-0">
+              <div
+                className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 py-5 md:py-6 cursor-pointer focus-within:bg-[rgba(149,49,49,0.03)] transition-colors duration-300"
+                onMouseEnter={() => setHoveredIndex(i)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                onFocus={() => setHoveredIndex(i)}
+                onBlur={() => setHoveredIndex(null)}
+                tabIndex={0}
+                role="button"
+                aria-label={`${service.title}: ${service.description}`}
+              >
+                <span className="text-xs text-charcoal/20 w-12 shrink-0">
                   {service.number}
                 </span>
                 <h3
@@ -100,7 +103,7 @@ export default function Services() {
                 </h3>
                 <div className="flex-1 hidden md:block">
                   <p
-                    className={`text-[13px] text-charcoal/45 max-w-md transition-all duration-400 ${
+                    className={`text-[13px] text-charcoal/45 max-w-md transition-all duration-300 ${
                       hoveredIndex === i
                         ? "opacity-100 translate-x-0"
                         : "opacity-0 -translate-x-3"

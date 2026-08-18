@@ -60,12 +60,12 @@ export default function CTA() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <button className="bg-[#953131] hover:bg-[#953131]/80 text-white px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.08em] transition-colors duration-300">
+          <button type="button" className="bg-[#953131] hover:bg-[#A93E3E] text-white px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.08em] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#953131]">
             REQUEST A CONSULTATION →
           </button>
           <a
             href="tel:+639556758128"
-            className="flex items-center gap-2 border border-white/20 text-white hover:border-white/40 hover:bg-white/5 px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.08em] transition-all duration-300"
+            className="flex items-center gap-2 border border-white/20 text-white hover:border-white/40 hover:bg-white/5 px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.08em] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#953131]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

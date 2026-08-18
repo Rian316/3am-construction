@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useInView } from "@/hooks/useInView";
 
@@ -52,6 +52,8 @@ const projects = [
 export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const lightboxRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const { ref: headerRef, isVisible: headerInView } = useInView({ threshold: 0.1 });
   const { ref: gridRef, isVisible: gridInView } = useInView({ threshold: 0.1 });
   const { ref: infoRef, isVisible: infoInView } = useInView({ threshold: 0.1 });
@@ -66,16 +68,49 @@ export default function Projects() {
     setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   }, []);
 
-  const openLightbox = useCallback(() => setLightboxOpen(true), []);
-  const closeLightbox = useCallback(() => setLightboxOpen(false), []);
+  const openLightbox = useCallback(() => {
+    setLightboxOpen(true);
+  }, []);
 
+  const closeLightbox = useCallback(() => {
+    setLightboxOpen(false);
+  }, []);
+
+  // Focus trap + keyboard navigation for lightbox
   useEffect(() => {
     if (!lightboxOpen) return;
 
+    const previousFocus = document.activeElement as HTMLElement;
+    closeButtonRef.current?.focus();
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowLeft") goToPrev();
-      if (e.key === "ArrowRight") goToNext();
+      if (e.key === "Escape") {
+        closeLightbox();
+        return;
+      }
+      if (e.key === "ArrowLeft") {
+        goToPrev();
+        return;
+      }
+      if (e.key === "ArrowRight") {
+        goToNext();
+        return;
+      }
+      // Focus trap
+      if (e.key === "Tab" && lightboxRef.current) {
+        const focusable = lightboxRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
 
     document.body.style.overflow = "hidden";
@@ -84,6 +119,7 @@ export default function Projects() {
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
+      previousFocus?.focus();
     };
   }, [lightboxOpen, closeLightbox, goToPrev, goToNext]);
 
@@ -92,7 +128,7 @@ export default function Projects() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
         <div
           ref={headerRef}
-          className={`flex items-end justify-between mb-10 ${
+          className={`flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 ${
             headerInView
               ? "translate-y-0 opacity-100 transition-all duration-700"
               : "translate-y-8 opacity-0"
@@ -102,44 +138,26 @@ export default function Projects() {
             <span className="block text-[#953131] text-[13px] tracking-[0.2em] uppercase mb-3">
               Selected Projects
             </span>
-            <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold">
+            <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1]">
               Our Work Speaks for Itself
             </h2>
           </div>
-          <div className="hidden md:flex items-center gap-3">
+          <div className="flex items-center gap-3">
             <button
               onClick={goToPrev}
-              className="w-12 h-12 border border-white/15 text-white/40 flex items-center justify-center hover:bg-white/5 hover:text-white transition-colors"
+              className="w-12 h-12 border border-white/15 text-white/40 flex items-center justify-center hover:bg-white/5 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#953131] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A1A1A]"
               aria-label="Previous project"
             >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M15 18l-6-6 6-6" />
               </svg>
             </button>
             <button
               onClick={goToNext}
-              className="w-12 h-12 border border-white/15 text-white/40 flex items-center justify-center hover:bg-white/5 hover:text-white transition-colors"
+              className="w-12 h-12 border border-white/15 text-white/40 flex items-center justify-center hover:bg-white/5 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#953131] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A1A1A]"
               aria-label="Next project"
             >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </button>
@@ -154,9 +172,10 @@ export default function Projects() {
               : "translate-y-8 opacity-0"
           }`}
         >
-          <div
-            className="lg:col-span-8 aspect-[16/10] overflow-hidden cursor-pointer relative bg-[#1A1A1A]"
+          <button
+            className="lg:col-span-8 aspect-[16/10] overflow-hidden cursor-pointer relative bg-[#1A1A1A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#953131] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A1A1A]"
             onClick={openLightbox}
+            aria-label={`Open lightbox for ${activeProject.title}`}
           >
             <Image
               src={activeProject.image}
@@ -166,13 +185,13 @@ export default function Projects() {
               sizes="(max-width: 1024px) 100vw, 66vw"
               priority
             />
-          </div>
+          </button>
           <div className="lg:col-span-4 grid grid-cols-3 lg:grid-cols-2 gap-2 lg:gap-3">
             {projects.map((project, index) => (
               <button
                 key={project.id}
                 onClick={() => setActiveIndex(index)}
-                className={`aspect-square overflow-hidden cursor-pointer relative ${
+                className={`aspect-square overflow-hidden cursor-pointer relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#953131] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A1A1A] ${
                   index === activeIndex
                     ? "ring-1 ring-[#953131]"
                     : "opacity-30 hover:opacity-60 transition-opacity"
@@ -210,24 +229,20 @@ export default function Projects() {
 
       {lightboxOpen && (
         <div
+          ref={lightboxRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Project lightbox"
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
           onClick={closeLightbox}
         >
           <button
+            ref={closeButtonRef}
             onClick={closeLightbox}
-            className="absolute top-6 right-6 w-12 h-12 text-white hover:text-[#953131] flex items-center justify-center transition-colors z-10"
+            className="absolute top-4 right-4 md:top-6 md:right-6 w-12 h-12 text-white hover:text-[#953131] flex items-center justify-center transition-colors z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#953131]"
             aria-label="Close lightbox"
           >
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
@@ -238,25 +253,16 @@ export default function Projects() {
               e.stopPropagation();
               goToPrev();
             }}
-            className="absolute left-4 md:left-8 w-14 h-14 text-white hover:text-[#953131] flex items-center justify-center transition-colors z-10"
+            className="absolute left-2 md:left-6 w-12 h-12 md:w-14 md:h-14 text-white hover:text-[#953131] flex items-center justify-center transition-colors z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#953131]"
             aria-label="Previous project"
           >
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </button>
 
           <div
-            className="max-w-6xl mx-auto px-20"
+            className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -264,13 +270,13 @@ export default function Projects() {
               alt={activeProject.title}
               width={1200}
               height={750}
-              className="max-h-[85vh] w-full object-contain"
-              sizes="(max-width: 1024px) 100vw, 75vw"
+              className="max-h-[80vh] w-full object-contain"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 75vw"
             />
             <div className="mt-4 text-center">
-              <p className="text-xl text-white">{activeProject.title}</p>
-              <p className="text-white/50 mt-1">
-                {activeProject.category} • {activeProject.location}
+              <p className="text-lg md:text-xl text-white">{activeProject.title}</p>
+              <p className="text-white/50 mt-1 text-sm">
+                {activeProject.category} &bull; {activeProject.location}
               </p>
             </div>
           </div>
@@ -280,19 +286,10 @@ export default function Projects() {
               e.stopPropagation();
               goToNext();
             }}
-            className="absolute right-4 md:right-8 w-14 h-14 text-white hover:text-[#953131] flex items-center justify-center transition-colors z-10"
+            className="absolute right-2 md:right-6 w-12 h-12 md:w-14 md:h-14 text-white hover:text-[#953131] flex items-center justify-center transition-colors z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#953131]"
             aria-label="Next project"
           >
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 18l6-6-6-6" />
             </svg>
           </button>

@@ -51,7 +51,7 @@ export default function About() {
 
             <a
               href="#services"
-              className="inline-flex items-center gap-2 mt-6 text-charcoal text-[13px] font-semibold tracking-[0.06em] uppercase group hover:gap-3 transition-all duration-300"
+              className="inline-flex items-center gap-2 mt-6 text-charcoal text-[13px] font-semibold tracking-[0.06em] uppercase group hover:gap-3 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#953131] focus-visible:ring-offset-2"
             >
               Discover Our Services
               <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -61,7 +61,7 @@ export default function About() {
           </div>
 
           <div
-            className={`lg:col-span-7 relative transition-all duration-700 ease-out delay-150 ${
+            className={`lg:col-span-7 transition-all duration-700 ease-out delay-150 ${
               isVisible ? "translate-x-0" : "translate-x-8"
             }`}
           >
@@ -73,11 +73,11 @@ export default function About() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 60vw"
               />
-            </div>
-            <div className="absolute -bottom-5 -left-5 bg-charcoal text-white px-6 py-5 max-w-[180px]">
-              <div className="text-2xl font-bold">7+</div>
-              <div className="text-[10px] tracking-[0.12em] text-white/70 uppercase mt-0.5">
-                Years of trusted service in Luzon
+              <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-charcoal text-white px-4 py-3 md:px-6 md:py-5">
+                <div className="text-xl md:text-2xl font-bold">7+</div>
+                <div className="text-[9px] md:text-[10px] tracking-[0.12em] text-white/70 uppercase mt-0.5">
+                  Years of trusted service in Luzon
+                </div>
               </div>
             </div>
           </div>

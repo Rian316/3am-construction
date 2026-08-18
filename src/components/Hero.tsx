@@ -61,7 +61,7 @@ export default function Hero() {
         <div style={fadeUp(450)} className="flex flex-wrap gap-3 mt-7">
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2.5 bg-[#953131] hover:bg-[#A93E3E] text-white px-6 py-3.5 text-[13px] font-medium tracking-[0.08em] uppercase transition-all duration-300"
+            className="group inline-flex items-center gap-2.5 bg-[#953131] hover:bg-[#A93E3E] text-white px-6 py-3.5 text-[13px] font-medium tracking-[0.08em] uppercase transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#953131]"
           >
             REQUEST A CONSULTATION
             <svg
@@ -80,7 +80,7 @@ export default function Hero() {
           </a>
           <a
             href="#projects"
-            className="group inline-flex items-center gap-2.5 border border-white/20 hover:border-white/40 text-white px-6 py-3.5 text-[13px] font-medium tracking-[0.08em] uppercase transition-all duration-300 hover:bg-white/5"
+            className="group inline-flex items-center gap-2.5 border border-white/20 hover:border-white/40 text-white px-6 py-3.5 text-[13px] font-medium tracking-[0.08em] uppercase transition-all duration-300 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#953131]"
           >
             VIEW OUR WORK
             <svg

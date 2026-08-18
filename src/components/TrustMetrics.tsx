@@ -16,6 +16,7 @@ export default function TrustMetrics() {
     <section
       ref={ref}
       className="bg-[#1A1A1A] py-8 md:py-12"
+      aria-label="Company statistics"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="grid grid-cols-2 md:grid-cols-4">

@@ -92,7 +92,7 @@ export default function Process() {
                   <h3 className="text-sm font-bold text-charcoal tracking-[0.15em] uppercase mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-[12px] text-charcoal/45 leading-relaxed max-w-[200px] mx-auto">
+                  <p className="text-[13px] text-charcoal/45 leading-relaxed max-w-[200px] mx-auto">
                     {step.description}
                   </p>
                 </div>

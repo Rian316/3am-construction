@@ -193,7 +193,7 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="bg-charcoal px-8 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] text-white transition-colors hover:bg-charcoal-light"
+              className="bg-[#953131] px-8 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] text-white transition-colors hover:bg-[#A93E3E] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#953131] focus-visible:ring-offset-2"
             >
               Send Inquiry
             </button>
