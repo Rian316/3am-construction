@@ -10,7 +10,7 @@ export default function Footer() {
             <a href="#" className="flex items-center gap-2.5 mb-5" aria-label="3AM Construction Services - Home">
               <Image src="/images/logo.png" alt="3AM Construction Services" width={120} height={35} style={{ width: "auto", height: "auto" }} className="h-7" />
             </a>
-            <p className="text-[13px] text-white/30 leading-relaxed">
+            <p className="text-[13px] text-white/50 leading-relaxed">
               Delivering exceptional construction and design solutions with
               precision, integrity, and excellence.
             </p>
@@ -32,7 +32,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="text-[13px] text-white/30 hover:text-[#953131] transition-colors duration-300"
+                    className="text-[13px] text-white/50 hover:text-[#953131] transition-colors duration-300"
                   >
                     {item.label}
                   </a>
@@ -58,7 +58,7 @@ export default function Footer() {
                 <li key={item}>
                   <a
                     href="#services"
-                    className="text-[13px] text-white/30 hover:text-[#953131] transition-colors duration-300"
+                    className="text-[13px] text-white/50 hover:text-[#953131] transition-colors duration-300"
                   >
                     {item}
                   </a>
@@ -76,7 +76,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:3am.constservices@gmail.com"
-                  className="text-[13px] text-white/30 hover:text-[#953131] transition-colors duration-300"
+                  className="text-[13px] text-white/50 hover:text-[#953131] transition-colors duration-300"
                 >
                   3am.constservices@gmail.com
                 </a>
@@ -84,7 +84,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+639556758128"
-                  className="text-[13px] text-white/30 hover:text-[#953131] transition-colors duration-300"
+                  className="text-[13px] text-white/50 hover:text-[#953131] transition-colors duration-300"
                 >
                   0955 675 8128
                 </a>
@@ -92,7 +92,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+639912620627"
-                  className="text-[13px] text-white/30 hover:text-[#953131] transition-colors duration-300"
+                  className="text-[13px] text-white/50 hover:text-[#953131] transition-colors duration-300"
                 >
                   0991 262 0627
                 </a>
@@ -102,7 +102,7 @@ export default function Footer() {
                   href="https://facebook.com/3amconstructionph"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] text-white/30 hover:text-[#953131] transition-colors duration-300"
+                  className="text-[13px] text-white/50 hover:text-[#953131] transition-colors duration-300"
                 >
                   facebook.com/3amconstructionph
                 </a>
@@ -116,19 +116,19 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-10 pt-8 border-t border-white/6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[11px] text-white/20">
+          <p className="text-[11px] text-white/40">
             &copy; 2018–2026 3AM Construction Services. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a
               href="/privacy"
-              className="text-[11px] text-white/20 hover:text-white/40 transition-colors duration-300"
+              className="text-[11px] text-white/40 hover:text-white/60 transition-colors duration-300"
             >
               Privacy Policy
             </a>
             <a
               href="/terms"
-              className="text-[11px] text-white/20 hover:text-white/40 transition-colors duration-300"
+              className="text-[11px] text-white/40 hover:text-white/60 transition-colors duration-300"
             >
               Terms of Service
             </a>

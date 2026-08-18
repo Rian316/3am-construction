@@ -67,7 +67,7 @@ export default function Team() {
               <p className="text-[12px] font-semibold text-[#953131] mt-1 tracking-[0.08em] uppercase">
                 {member.role}
               </p>
-              <p className="text-[15px] text-charcoal/45 leading-[1.75] mt-4">
+              <p className="text-[15px] text-charcoal/65 leading-[1.75] mt-4">
                 {member.description}
               </p>
             </div>

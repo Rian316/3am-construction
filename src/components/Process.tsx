@@ -67,7 +67,7 @@ export default function Process() {
             A Clear & Straightforward{" "}
             <span className="text-[#953131]">Process</span>
           </h2>
-          <p className="text-charcoal/45 mt-5 max-w-lg text-[15px] leading-[1.7]">
+          <p className="text-charcoal/60 mt-5 max-w-lg text-[15px] leading-[1.7]">
             We follow a proven process to ensure every project runs smoothly from
             start to finish.
           </p>
@@ -97,7 +97,7 @@ export default function Process() {
                   <h3 className="text-[13px] font-bold text-charcoal tracking-[0.18em] uppercase mb-2.5">
                     {step.title}
                   </h3>
-                  <p className="text-[14px] text-charcoal/40 leading-relaxed max-w-[200px] mx-auto">
+                  <p className="text-[14px] text-charcoal/60 leading-relaxed max-w-[200px] mx-auto">
                     {step.description}
                   </p>
                 </div>
@@ -129,7 +129,7 @@ export default function Process() {
                 <h3 className="text-[15px] font-bold text-charcoal tracking-[0.1em] uppercase mt-1 mb-2">
                   {step.title}
                 </h3>
-                <p className="text-[14px] text-charcoal/40 leading-relaxed">
+                <p className="text-[14px] text-charcoal/60 leading-relaxed">
                   {step.description}
                 </p>
               </div>

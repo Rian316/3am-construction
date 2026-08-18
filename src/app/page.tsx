@@ -4,12 +4,12 @@ import TrustMetrics from "@/components/TrustMetrics";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
-import Process from "@/components/Process";
-import Values from "@/components/Values";
 import Team from "@/components/Team";
 import CTA from "@/components/CTA";
+import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -68,12 +68,12 @@ export default function Home() {
       <About />
       <Services />
       <Projects />
-      <Process />
-      <Values />
       <Team />
       <CTA />
+      <FAQ />
       <Contact />
       <Footer />
+      <StickyMobileCTA />
     </main>
   );
 }

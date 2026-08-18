@@ -1,12 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useInView } from "@/hooks/useInView";
 
 const projects = [
   {
     id: 1,
+    slug: "modern-kitchen-renovation",
     title: "Modern Kitchen Renovation",
     category: "Residential",
     location: "Metro Manila",
@@ -16,6 +18,7 @@ const projects = [
   },
   {
     id: 2,
+    slug: "contemporary-living-space",
     title: "Contemporary Living Space",
     category: "Residential",
     location: "Luzon",
@@ -25,6 +28,7 @@ const projects = [
   },
   {
     id: 3,
+    slug: "luxury-kitchen-fit-out",
     title: "Luxury Kitchen Fit-Out",
     category: "Fit-Out",
     location: "Metro Manila",
@@ -34,6 +38,7 @@ const projects = [
   },
   {
     id: 4,
+    slug: "modern-bathroom-design",
     title: "Modern Bathroom Design",
     category: "Residential",
     location: "Luzon",
@@ -43,6 +48,7 @@ const projects = [
   },
   {
     id: 5,
+    slug: "premium-cabinetry-work",
     title: "Premium Cabinetry Work",
     category: "Fit-Out",
     location: "Metro Manila",
@@ -52,6 +58,7 @@ const projects = [
   },
   {
     id: 6,
+    slug: "urban-condo-interior",
     title: "Urban Condo Interior",
     category: "Residential",
     location: "Metro Manila",
@@ -61,6 +68,7 @@ const projects = [
   },
   {
     id: 7,
+    slug: "open-plan-living",
     title: "Open Plan Living",
     category: "Residential",
     location: "Luzon",
@@ -70,6 +78,7 @@ const projects = [
   },
   {
     id: 8,
+    slug: "executive-office-suite",
     title: "Executive Office Suite",
     category: "Commercial",
     location: "Metro Manila",
@@ -81,9 +90,6 @@ const projects = [
 
 export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const lightboxRef = useRef<HTMLDivElement>(null);
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const { ref: headerRef, isVisible: headerInView } = useInView({ threshold: 0.1 });
   const { ref: gridRef, isVisible: gridInView } = useInView({ threshold: 0.1 });
   const { ref: infoRef, isVisible: infoInView } = useInView({ threshold: 0.1 });
@@ -97,59 +103,6 @@ export default function Projects() {
   const goToNext = useCallback(() => {
     setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   }, []);
-
-  const openLightbox = useCallback(() => {
-    setLightboxOpen(true);
-  }, []);
-
-  const closeLightbox = useCallback(() => {
-    setLightboxOpen(false);
-  }, []);
-
-  useEffect(() => {
-    if (!lightboxOpen) return;
-
-    const previousFocus = document.activeElement as HTMLElement;
-    closeButtonRef.current?.focus();
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        closeLightbox();
-        return;
-      }
-      if (e.key === "ArrowLeft") {
-        goToPrev();
-        return;
-      }
-      if (e.key === "ArrowRight") {
-        goToNext();
-        return;
-      }
-      if (e.key === "Tab" && lightboxRef.current) {
-        const focusable = lightboxRef.current.querySelectorAll<HTMLElement>(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
-    };
-
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-      previousFocus?.focus();
-    };
-  }, [lightboxOpen, closeLightbox, goToPrev, goToNext]);
 
   return (
     <section id="projects" className="bg-[#1A1A1A] py-20 md:py-28 lg:py-36">
@@ -203,10 +156,9 @@ export default function Projects() {
           }`}
         >
           {/* Main large image */}
-          <button
-            className="lg:col-span-7 aspect-[4/3] lg:aspect-[3/2] overflow-hidden cursor-pointer relative bg-[#1A1A1A] group"
-            onClick={openLightbox}
-            aria-label={`Open lightbox for ${activeProject.title}`}
+          <Link
+            href={`/projects/${activeProject.slug}`}
+            className="lg:col-span-7 aspect-[4/3] lg:aspect-[3/2] overflow-hidden relative bg-[#1A1A1A] group"
           >
             <Image
               src={activeProject.image}
@@ -227,21 +179,26 @@ export default function Projects() {
               <p className="text-white/40 text-[13px] mt-1">
                 {activeProject.location} &middot; {activeProject.year}
               </p>
+              <span className="inline-flex items-center gap-2 mt-3 text-white/60 text-[11px] font-medium uppercase tracking-wider group-hover:text-white transition-colors">
+                View Case Study
+                <svg className="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
             </div>
-          </button>
+          </Link>
 
           {/* Right side: 2x2 grid of thumbnails */}
           <div className="lg:col-span-5 grid grid-cols-2 gap-3">
             {projects.slice(0, 4).map((project, index) => (
-              <button
+              <Link
                 key={project.id}
-                onClick={() => setActiveIndex(index)}
-                className={`aspect-[4/3] overflow-hidden cursor-pointer relative group ${
+                href={`/projects/${project.slug}`}
+                className={`aspect-[4/3] overflow-hidden relative group ${
                   index === activeIndex
                     ? "ring-1 ring-[#953131]"
                     : "opacity-50 hover:opacity-80 transition-opacity"
                 }`}
-                aria-label={`View ${project.title}`}
               >
                 <Image
                   src={project.image}
@@ -256,7 +213,7 @@ export default function Projects() {
                     {project.title}
                   </span>
                 </div>
-              </button>
+              </Link>
             ))}
           </div>
         </div>
@@ -280,15 +237,14 @@ export default function Projects() {
           </div>
           <div className="hidden md:flex items-center gap-2">
             {projects.slice(4).map((project, index) => (
-              <button
+              <Link
                 key={project.id}
-                onClick={() => setActiveIndex(index + 4)}
+                href={`/projects/${project.slug}`}
                 className={`w-16 h-12 overflow-hidden relative ${
                   index + 4 === activeIndex
                     ? "ring-1 ring-[#953131]"
                     : "opacity-30 hover:opacity-60 transition-opacity"
                 }`}
-                aria-label={`View ${project.title}`}
               >
                 <Image
                   src={project.image}
@@ -297,77 +253,11 @@ export default function Projects() {
                   className="object-cover"
                   sizes="64px"
                 />
-              </button>
+              </Link>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Lightbox */}
-      {lightboxOpen && (
-        <div
-          ref={lightboxRef}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Project lightbox"
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
-          onClick={closeLightbox}
-        >
-          <button
-            ref={closeButtonRef}
-            onClick={closeLightbox}
-            className="absolute top-5 right-5 md:top-8 md:right-8 w-12 h-12 text-white/60 hover:text-white flex items-center justify-center transition-colors z-10"
-            aria-label="Close lightbox"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-
-          <button
-            onClick={(e) => { e.stopPropagation(); goToPrev(); }}
-            className="absolute left-3 md:left-6 w-12 h-12 md:w-14 md:h-14 text-white/40 hover:text-white flex items-center justify-center transition-colors z-10"
-            aria-label="Previous project"
-          >
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-
-          <div
-            className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={activeProject.image}
-              alt={activeProject.title}
-              width={1200}
-              height={750}
-              className="max-h-[75vh] w-full object-contain"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 75vw"
-            />
-            <div className="mt-6 text-center">
-              <p className="text-white text-[10px] font-semibold tracking-[0.2em] uppercase mb-2">
-                {activeProject.category} &middot; {activeProject.location} &middot; {activeProject.year}
-              </p>
-              <p className="text-lg md:text-xl text-white font-medium">
-                {activeProject.title}
-              </p>
-            </div>
-          </div>
-
-          <button
-            onClick={(e) => { e.stopPropagation(); goToNext(); }}
-            className="absolute right-3 md:right-6 w-12 h-12 md:w-14 md:h-14 text-white/40 hover:text-white flex items-center justify-center transition-colors z-10"
-            aria-label="Next project"
-          >
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
-        </div>
-      )}
     </section>
   );
 }

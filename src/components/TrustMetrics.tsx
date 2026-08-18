@@ -35,7 +35,7 @@ export default function TrustMetrics() {
               <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight">
                 {metric.value}
               </div>
-              <div className="text-[10px] md:text-[11px] tracking-[0.2em] text-white/30 uppercase mt-1.5">
+              <div className="text-[10px] md:text-[11px] tracking-[0.2em] text-white/60 uppercase mt-1.5">
                 {metric.label}
               </div>
             </div>

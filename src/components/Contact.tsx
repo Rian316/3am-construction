@@ -162,8 +162,8 @@ export default function Contact() {
             <div className="space-y-5">
               {CONTACT_ITEMS.map((item) => (
                 <div key={item.label} className="flex items-start gap-3.5">
-                  <span className="mt-0.5 text-[#953131]/60">{item.icon}</span>
-                  <span className="text-[14px] font-light text-charcoal/60">
+                  <span className="mt-0.5 text-[#953131]/80">{item.icon}</span>
+                  <span className="text-[14px] font-light text-charcoal/70">
                     {item.label}
                   </span>
                 </div>
@@ -199,7 +199,7 @@ export default function Contact() {
                   <div className="space-y-2">
                     <label
                       htmlFor="name"
-                      className="text-[10px] font-semibold uppercase tracking-[0.25em] text-charcoal/35"
+                      className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
                     >
                       Name *
                     </label>
@@ -222,7 +222,7 @@ export default function Contact() {
                   <div className="space-y-2">
                     <label
                       htmlFor="email"
-                      className="text-[10px] font-semibold uppercase tracking-[0.25em] text-charcoal/35"
+                      className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
                     >
                       Email *
                     </label>
@@ -247,9 +247,9 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label
                     htmlFor="phone"
-                    className="text-[10px] font-semibold uppercase tracking-[0.25em] text-charcoal/35"
-                  >
-                    Phone
+                      className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
+                    >
+                      Phone
                   </label>
                   <input
                     id="phone"
@@ -271,9 +271,9 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label
                     htmlFor="projectType"
-                    className="text-[10px] font-semibold uppercase tracking-[0.25em] text-charcoal/35"
-                  >
-                    Project Type *
+                      className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
+                    >
+                      Project Type *
                   </label>
                   <div className="select-wrapper">
                     <select
@@ -304,9 +304,9 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label
                     htmlFor="message"
-                    className="text-[10px] font-semibold uppercase tracking-[0.25em] text-charcoal/35"
-                  >
-                    Message *
+                      className="text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/55"
+                    >
+                      Message *
                   </label>
                   <textarea
                     id="message"

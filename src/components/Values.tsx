@@ -43,15 +43,15 @@ export default function Values() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}
         >
-          <p className="text-lg md:text-xl text-charcoal/35 font-light tracking-[0.15em] uppercase mb-4">
+          <p className="text-lg md:text-xl text-charcoal/55 font-light tracking-[0.15em] uppercase mb-4">
             Built on
           </p>
-          <p className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal tracking-[-0.02em] leading-[1.0]">
+          <p className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal tracking-[-0.02em] leading-[1.0] font-display">
             <span className="block">DISCIPLINE.</span>
             <span className="block mt-1">PRECISION.</span>
             <span className="block mt-1">TRUST.</span>
           </p>
-          <p className="mt-8 text-[15px] text-charcoal/45 max-w-lg mx-auto leading-[1.7]">
+          <p className="mt-8 text-[15px] text-charcoal/65 max-w-lg mx-auto leading-[1.7]">
             These principles guide every project we undertake, ensuring
             excellence in every detail.
           </p>
@@ -68,7 +68,7 @@ export default function Values() {
             <h3 className="text-[13px] font-bold text-charcoal tracking-[0.12em] uppercase mb-5">
               Our Vision
             </h3>
-            <div className="space-y-5 text-[15px] text-charcoal/50 leading-[1.75]">
+            <div className="space-y-5 text-[15px] text-charcoal/65 leading-[1.75]">
               <p>
                 To be a trusted construction company delivering quality
                 residential, private, and public projects with integrity and
@@ -91,7 +91,7 @@ export default function Values() {
                     <span className="text-[#953131] font-bold text-[12px] mt-1 shrink-0 font-mono">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <p className="text-[15px] text-charcoal/50 leading-[1.75]">
+                    <p className="text-[15px] text-charcoal/65 leading-[1.75]">
                       {item}
                     </p>
                   </div>
@@ -118,7 +118,7 @@ export default function Values() {
                   <h4 className="text-[16px] font-bold text-charcoal tracking-tight mb-2">
                     {value.title}
                   </h4>
-                  <p className="text-[15px] text-charcoal/45 leading-[1.75]">
+                  <p className="text-[15px] text-charcoal/65 leading-[1.75]">
                     {value.description}
                   </p>
                 </div>

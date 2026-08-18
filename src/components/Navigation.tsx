@@ -92,7 +92,7 @@ export default function Navigation() {
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden relative w-10 h-10 flex items-center justify-center text-white transition-colors duration-300"
+              className="lg:hidden relative w-11 h-11 flex items-center justify-center text-white transition-colors duration-300"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >

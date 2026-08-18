@@ -91,7 +91,7 @@ export default function Services() {
                 role="button"
                 aria-label={`${service.title}: ${service.description}`}
               >
-                <span className="text-[11px] text-charcoal/20 w-10 shrink-0 font-mono">
+                <span className="text-[11px] text-charcoal/40 w-10 shrink-0 font-mono">
                   {service.number}
                 </span>
                 <h3
@@ -103,7 +103,7 @@ export default function Services() {
                 </h3>
                 <div className="flex-1 hidden md:block">
                   <p
-                    className={`text-[14px] text-charcoal/40 max-w-md leading-relaxed transition-all duration-400 ${
+                    className={`text-[14px] text-charcoal/60 max-w-md leading-relaxed transition-all duration-400 ${
                       hoveredIndex === i
                         ? "opacity-100 translate-x-0"
                         : "opacity-0 -translate-x-4"
@@ -126,7 +126,7 @@ export default function Services() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>
-              <p className="md:hidden text-[14px] text-charcoal/40 pb-5 -mt-2 leading-relaxed px-2">
+              <p className="md:hidden text-[14px] text-charcoal/60 pb-5 -mt-2 leading-relaxed px-2">
                 {service.description}
               </p>
             </div>

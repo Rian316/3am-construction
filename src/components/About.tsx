@@ -22,28 +22,32 @@ export default function About() {
               </span>
             </div>
 
-            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em] mb-8">
+            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-charcoal leading-[1.08] tracking-[-0.02em] mb-8 font-display">
               BUILT WITH
               <br />
               INTENTION.
             </h2>
 
-            <div className="space-y-5 text-charcoal/55 leading-[1.75] text-[15px] md:text-[16px]">
+            <div className="space-y-5 text-charcoal/70 leading-[1.75] text-[15px] md:text-[16px]">
               <p>
                 <strong className="text-charcoal font-semibold">
                   3AM Construction Services
                 </strong>{" "}
-                is a trusted construction company in Luzon, specializing in
-                residential, private, and public projects. With expertise in
-                interior and exterior design, fit-outs, construction, and
-                repair, we deliver high-quality results that meet the unique
-                needs of homeowners, developers, and government institutions.
+                is a Luzon-based construction company delivering residential,
+                commercial, and public projects since 2018. We handle everything
+                from ground-up builds to interior fit-outs and structural
+                repairs — all under one roof.
               </p>
               <p>
-                Founded by Mr. Armel V. Manipol, 3AM Construction Services was
-                built on the values of integrity, craftsmanship, and innovation.
-                Over the years, the company has established itself as a reliable
-                partner — committed to quality, safety, and client satisfaction.
+                Founded by Mr. Armel V. Manipol, the company was built on a
+                simple promise: quality work, delivered on time, with no
+                surprises. Over 100 projects later, that promise still drives
+                every build we take on.
+              </p>
+              <p>
+                Whether you&apos;re building a family home, renovating a commercial
+                space, or managing a government project — we bring the same
+                attention to detail and commitment to safety.
               </p>
             </div>
 
@@ -56,6 +60,17 @@ export default function About() {
                 →
               </span>
             </a>
+
+            {/* Founder Quote */}
+            <div className="mt-10 border-l-2 border-[#953131]/30 pl-6">
+              <p className="text-[14px] text-charcoal/60 italic leading-[1.7]">
+                &ldquo;We don&apos;t just build structures — we build trust. Every
+                project is a relationship, not a transaction.&rdquo;
+              </p>
+              <p className="text-[12px] text-[#953131] font-semibold mt-3 tracking-[0.05em] uppercase">
+                Armel V. Manipol, Founder
+              </p>
+            </div>
           </div>
 
           <div

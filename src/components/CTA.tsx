@@ -35,7 +35,7 @@ export default function CTA() {
           <span className="h-px w-10 bg-[#953131]" />
         </div>
 
-        <h2 className="font-bold text-white tracking-[-0.02em] leading-[0.92] mb-8">
+        <h2 className="font-bold text-white tracking-[-0.02em] leading-[0.92] mb-8 font-display">
           <span className="block text-3xl md:text-5xl lg:text-6xl xl:text-7xl">
             LET&apos;S BUILD
           </span>
@@ -47,7 +47,7 @@ export default function CTA() {
           </span>
         </h2>
 
-        <p className="text-[15px] md:text-[16px] text-white/35 max-w-md mx-auto leading-[1.7] mb-12">
+        <p className="text-[15px] md:text-[16px] text-white/65 max-w-md mx-auto leading-[1.7] mb-12">
           Whether it&apos;s a new home, a renovation, or a commercial project —
           we&apos;re ready to bring your vision to life with quality and
           craftsmanship.

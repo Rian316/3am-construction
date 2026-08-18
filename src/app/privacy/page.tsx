@@ -20,7 +20,7 @@ export default function PrivacyPage() {
           Privacy Policy
         </h1>
 
-        <div className="space-y-8 text-[15px] text-charcoal/55 leading-[1.8]">
+        <div className="space-y-8 text-[15px] text-charcoal/70 leading-[1.8]">
           <section>
             <h2 className="text-lg font-bold text-charcoal mb-3">1. Information We Collect</h2>
             <p>
@@ -85,7 +85,7 @@ export default function PrivacyPage() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-charcoal/8">
-          <p className="text-[12px] text-charcoal/30">
+          <p className="text-[12px] text-charcoal/45">
             Last updated: August 2026
           </p>
           <Link href="/" className="inline-flex items-center gap-2 mt-4 text-[12px] font-semibold text-[#953131] uppercase tracking-[0.08em] hover:underline">

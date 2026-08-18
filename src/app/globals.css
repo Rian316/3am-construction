@@ -23,7 +23,7 @@
   --color-black: #000000;
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
 }
 
 * {
